@@ -72,6 +72,9 @@ group :test do
   gem "webdrivers"
 end
 
+
+gem 'devise'
+
 #アクティブハッシュ
 gem 'active_hash'
 
@@ -79,5 +82,7 @@ gem 'active_hash'
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 
+#テスト用Gem追加
 gem 'rspec-rails'
 gem 'factory_bot_rails'
+
