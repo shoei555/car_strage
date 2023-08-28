@@ -4,37 +4,38 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :社員番号 %><br />
-    <%= f.text_field :employee_num, autofocus: true, maxlength: "6" %>
+    <%= f.label :employee_num,"社員番号" %><br />
+    <%= f.text_field :employee_num, autofocus: true, maxlength: 6 %>
   </div>
 
   <div class="field">
-    <%= f.label :姓 %><br />
+    <%= f.label :last_name,"姓" %><br />
     <%= f.text_field :last_name, autofocus: true, autocomplete: "family-name" %>
   </div>
 
   <div class="field">
-    <%= f.label :名 %><br />
+    <%= f.label :first_name,"名" %><br />
     <%= f.text_field :first_name, autofocus: true, autocomplete: "given-name" %>
   </div>
   
   <div class="field">
-    <%= f.label :メールアドレス %><br />
+    <%= f.label :email,"メールアドレス" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :パスワード %>
+    <%= f.label :password,"パスワード" %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %>文字以内)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :確認用パスワード %><br />
+    <%= f.label :password_confirmation,"確認用パスワード" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+ 
 
   <div class="actions">
     <%= f.submit "新規登録" %>
