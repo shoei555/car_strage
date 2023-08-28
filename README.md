@@ -46,11 +46,12 @@ has_many: cars
 | Type                | Column              | Options        | Description                             |
 | ------------------- | ------------------- | -------------- | ----------------------------------------|
 | string              | name                | null:false     | 車種名                                   |
-| string              | maker               | null:false     | メーカー名                                |
+| integer              | maker_id               | null:false     | メーカー名                                |
 | date                | model_year          | null:false     | 年式                                     |
 | integer             | mileage             | null:false     | 走行距離                                  |
-| string              | prefecture          | null:false     | 県                                       |
+| integer              | prefecture_id          | null:false     | 登録都道府県                               |
 | integer             | price               | null:false     | 車両本体価格                               |
+| string              | car_code            | null:false, unique:true     | 車体番号                     |
 | reference           | user                | null:false     | 登録者                                    |
 
 ##Association
