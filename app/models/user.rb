@@ -8,10 +8,10 @@ class User < ApplicationRecord
     validates :employee_num, format: {with:/[0-9]{6}/}
     validates :last_name,    format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]/}
     validates :first_name,   format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]/}
+    validates :password,     format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i},length: { maximum: 10 }
   end
 
   with_options uniqueness: true do
-    validates :employee_num
+    validates :employee_num, format: {with:/[0-9]{6}/,message: 'は既に使用されています'}
   end
-
 end
