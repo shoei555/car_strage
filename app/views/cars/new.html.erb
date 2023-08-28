@@ -1,5 +1,5 @@
 
-    <%= form_with model: @car, local: true do |f| %>
+    <%= form_with model: @car, id: 'new_car' ,local: true do |f| %>
 
       <%# 商品画像 %>
       <div class="img-upload">
@@ -12,7 +12,7 @@
           <p>
             クリックしてファイルをアップロード
           </p>
-          <%= f.file_field :image,  id:"item-image" %>
+          <%= f.file_field :images, name: 'car[images][]', data: {index: 0}, id:"item-image" %>
         </div>
       </div>
       <%# /商品画像 %>

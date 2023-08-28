@@ -7,12 +7,13 @@ class Car < ApplicationRecord
     validates :prefecture_id
     validates :price
     validates :car_code, uniqueness: true
+    validates :images,                length: { minimum: 1, maximum: 5, message: "は1枚以上5枚以下にしてください" }
     #validates :user
   end
 
   ##Association
   #belongs_to: user
-  #has_many_attached: images
+  has_many_attached :images
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
