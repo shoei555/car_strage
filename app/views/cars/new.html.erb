@@ -1,0 +1,88 @@
+
+    <%= form_with model: @car, local: true do |f| %>
+
+      <%# 商品画像 %>
+      <div class="img-upload">
+        <div class="weight-bold-text">
+          商品画像
+          <span class="indispensable">必須</span>
+        </div>
+        <div class="click-upload">
+          <div id="previews"></div>
+          <p>
+            クリックしてファイルをアップロード
+          </p>
+          <%= f.file_field :image,  id:"item-image" %>
+        </div>
+      </div>
+      <%# /商品画像 %>
+      <%# 商品名と商品説明 %>
+      <div class="new-items">
+        <div class="weight-bold-text">
+          車種名
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :name, class:"items-text", id:"item-name", placeholder:"車種名（必須 40文字まで)", maxlength:"40" %>
+        <div class="items-explain">
+          <div class="weight-bold-text">
+            メーカー
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:maker_id, Maker.all, :id, :name, {},  {class:"select-box", id:"item-maker"}) %>
+        </div>
+      </div>
+      <div class="items-explain">
+          <div class="weight-bold-text">
+            年式
+            <span class="indispensable">必須</span>
+          </div>
+          <%= raw sprintf(
+                    f.date_select(
+                      :model_year,
+                      class:'select-year',
+                      id:"model_year",
+                      use_month_numbers: true,
+                      discard_day: true,	
+                      prompt:'--',
+                      start_year: 1930,
+                      end_year: (Time.now.year - 5),
+                      date_separator: '%s'),
+                    "<p> 年 </p>") + "<p> 月 </p>" %>
+      </div>
+      <div class="items-explain">
+          <div class="weight-bold-text">
+            走行距離
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :mileage , class:"items-text", id:"item-info", placeholder:"走行距離入力" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+      <div class="items-explain">
+          <div class="weight-bold-text">
+            登録都道府県
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {},  {class:"select-box", id:"item-prefecture"}) %>
+      </div>
+      <div class="items-explain">
+          <div class="weight-bold-text">
+            車台番号
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :car_code, class:"items-text", id:"item-info", placeholder:"車台番号入力" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+      <div class="items-explain">
+          <div class="weight-bold-text">
+            価格
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :price, class:"items-text", id:"item-info", placeholder:"価格入力" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+      <%# /商品名と商品説明 %>
+
+      
+      <%# 下部ボタン %>
+      <div class="sell-btn-contents">
+        <%= f.submit "登録する" ,class:"sell-btn" %>
+      </div>
+
+    <% end %>
