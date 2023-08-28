@@ -73,4 +73,5 @@ group :test do
 end
 
 gem 'devise'
-
+gem 'rspec-rails'
+gem 'factory_bot_rails'
