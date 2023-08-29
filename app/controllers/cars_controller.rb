@@ -19,6 +19,10 @@ class CarsController < ApplicationController
     end
   end
 
+  def show
+    @car = Car.find(params[:id])
+  end
+
   private
   def car_params
     params.require(:car).permit(:name, :maker_id, :model_year, :mileage, :prefecture_id, :price, :car_code, {images: []}).merge(user_id: current_user.id)
