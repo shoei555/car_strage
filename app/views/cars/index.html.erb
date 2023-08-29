@@ -8,15 +8,19 @@
 <% @cars.each do |c|%>
 <table>
 <tr>
-  <td><%= image_tag c.images[0],:size =>'100x100'%></td>
 
   <td>
-      メーカー：<%= c.maker.name%>
+   <%= image_tag c.images[0],:size =>'100x100'%>
+   <%= link_to "詳細画面へ", car_path(id: c.id), method: :get %>
+  </td>
+      
+  <td>
+      メーカー：<%= c.maker.name %>
       車種名:<%= c.name %>
       年式：<%= c.model_year%><br>
       距離：<%= c.mileage%>km</%>
       車台番号：<%= c.car_code%>
-      価格：<%= c.price%>円</%>
+      価格：<%= c.price.to_f/10000 %>万円</%>
   </td>
 
   <td>

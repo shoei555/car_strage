@@ -40,7 +40,8 @@
             年式
             <span class="indispensable">必須</span>
           </div>
-          <%= raw sprintf(
+          
+        <%= raw sprintf(
                     f.date_select(
                       :model_year,
                       class:'select-year',
@@ -51,7 +52,7 @@
                       start_year: (Time.now.year),
                       end_year: 1989,
                       date_separator: '%s'),
-                    "<p> 年 </p>") + "<p> 月 </p>" %>
+                    "<p> 年 </p>") + "<p> 月 </p>" %> 
       </div>
       <div class="items-explain">
           <div class="weight-bold-text">
@@ -79,7 +80,7 @@
             価格
             <span class="indispensable">必須</span>
           </div>
-          <%= f.text_field :price, class:"items-text", id:"item-info", placeholder:"価格入力" ,rows:"7" ,maxlength:"1000" %>
+          <%= f.text_field :price, class:"items-text", id:"item-info", placeholder:"価格入力" ,rows:"7" ,maxlength:"1000" %> 
       </div>
       <%# /商品名と商品説明 %>
 

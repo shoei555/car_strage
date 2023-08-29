@@ -1,0 +1,46 @@
+<p>以下、詳細画面表示<p>
+<% if user_signed_in? %>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+  <%= link_to "在庫一覧画面へ", root_path, method: :get %>
+<% end %>
+
+<table>
+  <tr>
+    <%= image_tag @car.images[0],:size =>'500x350'%>
+  </tr>
+  <tr>
+    <td>メーカー</td>
+    <td><%= @car.maker.name %></td>
+  </tr>
+  <tr>
+    <td>車種名</td>
+    <td><%= @car.name %></td>
+  </tr>
+  <tr>
+    <td>年式：</td>
+    <td><%= @car.model_year %></td>
+  </tr>
+  <tr>
+    <td>距離：</td>
+    <td><%= @car.mileage %>km</td>
+  </tr>
+  <tr>
+    <td>車台番号：</td>
+    <td><%= @car.car_code%></td>
+  </tr>
+  <tr>
+    <td>価格：</td>
+    <td><%= @car.price.to_f/10000 %>万円</td>
+  </tr>
+  <tr>
+    <td>所在地：</td>
+    <td><%= @car.prefecture.name%></td>
+  </tr>
+  <tr>
+    <td>登録者：</td>
+    <td><%= @car.user.last_name%><%= @car.user.first_name %></td>
+  </tr>
+</table>
+
+  <%= link_to "編集", root_path, method: :delete %>
+  <%= link_to "削除", root_path, method: :get %>
