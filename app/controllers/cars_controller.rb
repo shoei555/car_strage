@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
 before_action :log_out, only:[:index, :new]
-before_action :set_car, only:[:show, :edit, :update]
+before_action :set_car, only:[:show, :edit, :update, :destroy]
 
   def index
     @cars = Car.all
@@ -31,6 +31,11 @@ before_action :set_car, only:[:show, :edit, :update]
     else
       render :edit 
     end
+  end
+
+  def destroy
+    @car.destroy
+    redirect_to root_path
   end
 
   private
