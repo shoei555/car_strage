@@ -21,7 +21,7 @@ class CarsController < ApplicationController
 
   private
   def car_params
-    params.require(:car).permit(:name, :maker_id, :model_year, :mileage, :prefecture_id, :price, :car_code, {images: []})
+    params.require(:car).permit(:name, :maker_id, :model_year, :mileage, :prefecture_id, :price, :car_code, {images: []}).merge(user_id: current_user.id)
   end
   
   def log_out #ログアウト状態ではログイン画面へ遷移

@@ -7,7 +7,8 @@ FactoryBot.define do
     prefecture_id        { 2 }
     price                { 200000 }
     car_code             { 'JB23W-367841' }
-
+    user                 { association :user }
+    
     after(:build) do |car|
       car.images.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
     end

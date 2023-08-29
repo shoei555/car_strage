@@ -14,4 +14,7 @@ class User < ApplicationRecord
   with_options uniqueness: true do
     validates :employee_num, format: {with:/[0-9]{6}/,message: 'は既に使用されています'}
   end
+
+  ##Association
+  has_many :cars
 end
