@@ -1,7 +1,7 @@
 class CarsController < ApplicationController
+before_action :log_out, only:[:index, :new]
+before_action :set_car, only:[:show, :edit, :update]
 
-  before_action :log_out, only:[:index, :new]
-  
   def index
     @cars = Car.all
   end
@@ -20,7 +20,17 @@ class CarsController < ApplicationController
   end
 
   def show
-    @car = Car.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @car.update(car_params)
+      redirect_to car_path
+    else
+      render :edit 
+    end
   end
 
   private
@@ -32,6 +42,10 @@ class CarsController < ApplicationController
     unless user_signed_in?
       redirect_to user_session_path
     end
+  end
+
+  def set_car
+    @car = Car.find(params[:id])
   end
 
 end
