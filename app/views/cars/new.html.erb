@@ -1,5 +1,9 @@
 
     <%= form_with model: @car, id: 'new_car' ,local: true do |f| %>
+      <% if user_signed_in? %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <%= link_to "一覧画面へ", root_path, method: :get %>
+      <% end %>
 
       <%# 商品画像 %>
       <div class="img-upload">

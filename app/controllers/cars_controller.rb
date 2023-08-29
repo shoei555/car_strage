@@ -3,7 +3,7 @@ class CarsController < ApplicationController
   before_action :log_out, only:[:index, :new]
   
   def index
-
+    @cars = Car.all
   end
 
   def new
