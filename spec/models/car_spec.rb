@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Car, type: :model do
   before do
-    @car = FactoryBot.build(:car)
+    @user = FactoryBot.create(:user)
+    @car = FactoryBot.build(:car,user: @user)
 end
 
   describe '在庫登録' do
@@ -74,10 +75,15 @@ end
       end
       it '登録済みの車は登録できない' do
         @car.save
-        another_user = FactoryBot.build(:car)
-        another_user.car_code = @car.car_code
-        another_user.valid?
-        expect(another_user.errors.full_messages).to include('Car code has already been taken')
+        another_car = FactoryBot.build(:car,user: @user)
+        another_car.car_code = @car.car_code
+        another_car.valid?
+        expect(another_car.errors.full_messages).to include('Car code has already been taken')
+      end
+      it 'user情報が空の場合は登録できない' do
+        @car.user = nil
+        @car.valid?
+        expect(@car.errors.full_messages).to include('User must exist')
       end
       
     end

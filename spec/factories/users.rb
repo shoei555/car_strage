@@ -4,7 +4,7 @@ FactoryBot.define do
     last_name                {'山田'}
     first_name               {'太郎'}
     email                    {'test@example'}
-    password                 {'777777'}
-    encrypted_password       {'password'}
+    password                 {'777777aaa'}
+    encrypted_password       {password}
   end
 end
