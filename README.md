@@ -51,14 +51,14 @@ has_many: cars
 | integer             | mileage             | null:false                  | 走行距離                                  |
 | integer             | prefecture_id       | null:false                  | 登録都道府県                               |
 | integer             | price               | null:false                  | 車両本体価格                               |
-| string              | car_code            | null:false, unique:true     | 車体番号                                  |
-| reference           | user                | null:false                  | 登録者                                    |
-| string              | car_inspection      | null:false                  | 車検期間                                   |
+| string              | car_code            | null:false, unique:true     | 車体番号                                   |
+| reference           | user                | null:false                  | 登録者                                     |
+| date                | car_inspection      | null:false                  | 車検期間                                   |
 | integer             | displacement        | null:false                  | 排気量                                     |
-| string              | car_color           | null:faise                  | 車体色                                     | 
-| integer             | wheel_drive         | null:false                  | 駆動                                       |
-| integer             | car_fuel            | null:false                  | 燃料                                       |
-| integer             | tag                 |                             | タグ
+| string              | car_color           | null:false                  | 車体色                                     |
+| string              | wheel_drive         | null:false                  | 駆動                                       |
+| string              | car_fuel            | null:false                  | 燃料                                       |
+| integer             | tag_id              |                             | タグ                                       |
 
 ##Association
 belongs_to: user
