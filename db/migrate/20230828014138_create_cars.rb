@@ -14,6 +14,7 @@ class CreateCars < ActiveRecord::Migration[7.0]
       t.string     :car_color,      null:false
       t.string     :wheel_drive,    null:false
       t.string     :car_fuel,       null:false
+      t.references :editer
       t.integer    :tag_id
       t.timestamps
     end
