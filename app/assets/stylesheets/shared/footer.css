@@ -1,0 +1,15 @@
+footer {
+  height: 50px;
+  width:100%;
+  background-color: #616161;
+}
+
+.idom-logo {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 25px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
