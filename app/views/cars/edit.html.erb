@@ -1,3 +1,5 @@
+<%= render "cars/header" %>
+
 <p>以下、編集画面表示<p>
 
 <% if user_signed_in? %>
@@ -91,3 +93,5 @@
         <%= f.submit "登録する" ,class:"sell-btn" %>
       </div>
 <% end %>
+
+<%= render "layouts/footer" %>

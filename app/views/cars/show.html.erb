@@ -1,3 +1,5 @@
+<%= render "cars/header" %>
+
 <p>以下、詳細画面表示<p>
 <% if user_signed_in? %>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
@@ -44,3 +46,5 @@
 
   <%= link_to "編集画面へ", edit_car_path(id: @car.id), method: :get %>
   <%= link_to "削除", car_path(id: @car.id), data: { turbo_method: :delete} %>
+
+  <%= render "layouts/footer" %>

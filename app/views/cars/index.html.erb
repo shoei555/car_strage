@@ -1,3 +1,5 @@
+<%= render "cars/header" %>
+
 <p>以下、一覧画像表示<p>
 
 <% if user_signed_in? %>
@@ -10,7 +12,7 @@
 <tr>
 
   <td>
-   <%= image_tag c.images[0],:size =>'100x100'%>
+   <%= image_tag c.images[0],:size =>'100x100' if c.images.present? && c.images[0].present?%>
    <%= link_to "詳細画面へ", car_path(id: c.id), method: :get %>
   </td>
       
@@ -32,3 +34,5 @@
 </table>
 <br>
 <% end %>
+
+<%= render "layouts/footer" %>
