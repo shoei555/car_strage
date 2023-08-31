@@ -1,38 +1,109 @@
-<%= render "cars/header" %>
-
-<p>以下、一覧画像表示<p>
-
+<!--ヘッダー-->
+<p>以下、一覧画像表示
 <% if user_signed_in? %>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
   <%= link_to "車両新規登録", new_car_path, method: :get %>
 <% end %>
+</p>
+<!--ヘッダー-->
 
-<% @cars.each do |c|%>
-<table>
-<tr>
 
-  <td>
-   <%= image_tag c.images[0],:size =>'100x100' if c.images.present? && c.images[0].present?%>
-   <%= link_to "詳細画面へ", car_path(id: c.id), method: :get %>
-  </td>
-      
-  <td>
-      メーカー：<%= c.maker.name %>
-      車種名:<%= c.name %>
-      年式：<%= c.model_year%><br>
-      距離：<%= c.mileage%>km</%>
-      車台番号：<%= c.car_code%>
-      価格：<%= c.price.to_f/10000 %>万円</%>
-  </td>
+<!--メイン全体-->
+<div class="index_main">
+<!--サイドバー-------->
+<div class="side_bar">
+</div>
+<!--サイドバー-------->
 
-  <td>
-      所在地：<%= c.prefecture.name%><br>
-      登録者：<%= c.user.last_name %><%= c.user.first_name %>
-  </td> 
+<!--検索欄ー-------->
+<div class="serch_bar"> 
+<%= form_with model: @car, id: 'new_car' ,local: true do |f| %>
+        <table class="serch_elements">
+          <tr>
+              <td>
+              メーカー
+              </td>
+              <td>
+              <%= f.collection_select(:maker_id, Maker.all, :id, :name, {},  {class:"select-box", id:"item-maker"}) %>
+              </td>
+            
+              <td>
+              年式
+              </td>
+              <td>
+              <%= f.collection_select(:maker_id, Maker.all, :id, :name, {},  {class:"select-box", id:"item-maker"}) %>
+              </td>
+              <td>
+              都道府県
+              </td>
+              <td>
+              <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {},  {class:"select-box", id:"item-prefecture"}) %>
+              </td>
+          </tr>
 
-</tr>
-</table>
-<br>
+          <tr>
+            <td>
+            車種名
+            </td>
+            <td>
+            <%= f.collection_select(:maker_id, Maker.all, :id, :name, {},  {class:"select-box", id:"item-maker"}) %>
+            </td>
+            <td>
+            走行距離
+            </td>
+            <td>
+            <%= f.collection_select(:maker_id, Maker.all, :id, :name, {},  {class:"select-box", id:"item-maker"}) %>
+            </td>
+            <td>
+            本体価格
+            </td>
+            <td>
+            <%= f.collection_select(:maker_id, Maker.all, :id, :name, {},  {class:"select-box", id:"item-maker"}) %>
+            </td>
+            <td>
+            車台番号
+            </td>
+            <td>
+            <%= f.text_field :car_code, class:"items-text", id:"item-info", placeholder:"車台番号入力" ,maxlength:"20" %>
+            </td>
+          </tr>
+        </table>
+            
+        <div>
+          <%= f.submit "検索" ,class:"serch_btn" %>
+        </div>
+        </div>
 <% end %>
 
-<%= render "layouts/footer" %>
+<!--検索欄ー-------->
+
+
+
+<!--一覧表示画面-------->
+<div class="search_results_index">
+<% @cars.each do |c|%>
+<table>
+      <tr>
+        <td>
+            <%= image_tag c.images[0],:size =>'100x100'%>
+            <%= link_to "詳細画面へ", car_path(id: c.id), method: :get %>
+        </td>
+        <td>
+            メーカー：<%= c.maker.name %>
+            車種名:<%= c.name %>
+            年式：<%= c.model_year%><br>
+            距離：<%= c.mileage%>km</%>
+            車台番号：<%= c.car_code%>
+            価格：<%= c.price.to_f/10000 %>万円</%>
+        </td>
+        <td>
+            所在地：<%= c.prefecture.name%><br>
+            登録者：<%= c.user.last_name %><%= c.user.first_name %>
+        </td> 
+      </tr>
+</table>
+<% end %>
+</div>
+<!--一覧表示画面-------->
+</div>
+<!--メイン全体-->
