@@ -1,0 +1,47 @@
+/*ログイン画面,新規登録画面のフッターのCSS*/
+.devise-page-header {
+  height: 50px;
+  width:100%;
+  background-color: #616161;
+}
+
+.app-logo {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 35px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+/*メイン画面系のCSS*/
+.cars-header {
+  height: 50px;
+  width:100%;
+  background-color: #616161;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  padding:0 10px;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: white;
+}
+
+.app-logo2 {
+  font-size: 35px;
+}
+
+.menu-list {
+  display: flex;
+  align-items: center;
+}
+
+.header-list {
+  padding-right:20px;
+}
+
+.menu-link {
+  text-decoration:none;
+  color: white;
+}
