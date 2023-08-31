@@ -1,3 +1,4 @@
+<%= render "cars/header" %>
 
     <%= form_with model: @car, id: 'new_car' ,local: true do |f| %>
       <% if user_signed_in? %>
@@ -91,3 +92,5 @@
       </div>
 
     <% end %>
+
+<%= render "layouts/footer" %>
