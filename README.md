@@ -28,13 +28,13 @@ Aws
 
 【Users Table】
 
-| Type                | Column              | Options                     | Description             |
-| ------------------- | ------------------- | --------------------------- | ------------------------|
-| integer             | employee_num        | null:false                  | 社員番号                 |
-| string              | last_name           | null:false                  | 姓                     | 
-| string              | first_name          | null:false                  | 名                     |
-| string              | email               | null:false, unique:true     | ユーザーのメールアドレス   |
-| string              | encrypted_password  | null:false                  | ユーザーのパスワード      |
+| Type                | Column              | Options                     | Description               |
+| ------------------- | ------------------- | --------------------------- | ------------------------  |
+| integer             | employee_num        | null:false                  | 社員番号                   |
+| string              | last_name           | null:false                  | 姓                        | 
+| string              | first_name          | null:false                  | 名                        |
+| string              | email               | null:false, unique:true     | ユーザーのメールアドレス      |
+| string              | encrypted_password  | null:false                  | ユーザーのパスワード          |
 
 
 ##Association
@@ -43,16 +43,22 @@ has_many: cars
 
 【Cars Table】
 
-| Type                | Column              | Options        | Description                             |
-| ------------------- | ------------------- | -------------- | ----------------------------------------|
-| string              | name                | null:false     | 車種名                                   |
-| integer              | maker_id               | null:false     | メーカー名                                |
-| date                | model_year          | null:false     | 年式                                     |
-| integer             | mileage             | null:false     | 走行距離                                  |
-| integer              | prefecture_id          | null:false     | 登録都道府県                               |
-| integer             | price               | null:false     | 車両本体価格                               |
-| string              | car_code            | null:false, unique:true     | 車体番号                     |
-| reference           | user                | null:false     | 登録者                                    |
+| Type                | Column              | Options                     | Description                             |
+| ------------------- | ------------------- | --------------------------- | ----------------------------------------|
+| string              | name                | null:false                  | 車種名                                   |
+| integer             | maker_id            | null:false                  | メーカー名                                |
+| date                | model_year          | null:false                  | 年式                                     |
+| integer             | mileage             | null:false                  | 走行距離                                  |
+| integer             | prefecture_id       | null:false                  | 登録都道府県                               |
+| integer             | price               | null:false                  | 車両本体価格                               |
+| string              | car_code            | null:false, unique:true     | 車体番号                                   |
+| reference           | user                | null:false                  | 登録者                                     |
+| date                | car_inspection      | null:false                  | 車検期間                                   |
+| integer             | displacement        | null:false                  | 排気量                                     |
+| string              | car_color           | null:false                  | 車体色                                     |
+| string              | wheel_drive         | null:false                  | 駆動                                       |
+| string              | car_fuel            | null:false                  | 燃料                                       |
+| integer             | tag_id              |                             | タグ                                       |
 
 ##Association
 belongs_to: user

@@ -48,6 +48,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_28_031404) do
     t.integer "price", null: false
     t.string "car_code", null: false
     t.bigint "user_id", null: false
+    t.date "car_inspection", null: false
+    t.integer "displacement", null: false
+    t.string "car_color", null: false
+    t.string "wheel_drive", null: false
+    t.string "car_fuel", null: false
+    t.integer "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cars_on_user_id"
