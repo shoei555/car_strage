@@ -63,8 +63,8 @@
     </table>
 
     <div class="show-buttons">
-      <%= link_to "編集", edit_car_path(id: @car.id), method: :get, class:"edit-button" %>
-      <%= link_to "削除", car_path(id: @car.id), data: { turbo_method: :delete}, class:"delete-button" %>
+      <%= link_to "編集", edit_car_path(id: @car.id), method: :get, id:"edit-button" %>
+      <%= link_to "削除", car_path(id: @car.id), data: { turbo_method: :delete }, id: "delete-button" %>
     </div>
 
   </div>
