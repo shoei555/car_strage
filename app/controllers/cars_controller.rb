@@ -38,6 +38,11 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
     redirect_to root_path
   end
 
+  def search
+    @q = Car.ransack(params[:q])
+    @cars = @q.result      
+  end
+
   private
   def car_params
     params.require(:car).permit(:name, :maker_id, :model_year, :mileage, :prefecture_id, :price, :car_code, {images: []}).merge(user_id: current_user.id)
