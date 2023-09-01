@@ -4,6 +4,12 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
 
   def index
     @cars = Car.all
+    # @model_years = Car.pluck(:model_year)
+    # @car_names = Car.pluck(:name)
+    # @car_mileage = Car.pluck(:mileage)
+    # @car_price = Car.pluck(:price)
+    # @q = Car.ransack(params[:q])
+    # @search_result = @q.result(distinct: true)
   end
 
   def new
@@ -40,7 +46,20 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
 
   def search
     @q = Car.ransack(params[:q])
-    @cars = @q.result      
+    @search_results = @q.result
+    @car_price = Car.pluck(:price)
+    @car_model_year = Car.pluck(:model_year)
+    @car_mileage = Car.pluck(:mileage)
+    #@car_name = Car.pluck(:name)
+    #一旦コメントアウト
+    # @q = Car.ransack(params[:q])
+    
+    
+    
+    # @car_price = Car.pluck(:price)
+    # @search_result = @q.result(distinct: true)
+    # query = params[:query]
+    # @search_results = Car.where("name LIKE ?", "%#{query}%")
   end
 
   private
