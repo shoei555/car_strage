@@ -15,10 +15,6 @@
   padding: 20px;
 }
 
-.img-list {
-  
-}
-
 .preview-main-img {
   width:600px;
   height:450px;
@@ -52,10 +48,7 @@ td, th {
   font-size: 30px;
 }
 
-.edit-button {
+#edit-button {
   padding-right:30px;
 }
 
-.delete-button {
-
-}
