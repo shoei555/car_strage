@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-before_action :log_out, only:[:index, :new]
+before_action :log_out, only:[:index, :new, :show, :edit]
 before_action :set_car, only:[:show, :edit, :update, :destroy]
 
   def index
