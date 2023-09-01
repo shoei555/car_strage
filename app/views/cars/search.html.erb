@@ -1,0 +1,113 @@
+<!--ヘッダー-->
+<p>以下、検索画面像表示
+<% if user_signed_in? %>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+  <%= link_to "車両新規登録", new_car_path, method: :get %>
+  <%= link_to "一覧画面へ", root_path, method: :get %>
+<% end %>
+</p>
+<!--ヘッダー-->
+
+
+<!--メイン全体-->
+<div class="index_main">
+<!--サイドバー-------->
+<div class="side_bar">
+</div>
+<!--サイドバー-------->
+
+<!--検索欄ー-------->
+<div class="search_bar"> 
+<%= search_form_for @q,url: search_cars_path(query: params[:query]), model: @car, id: 'new_car' ,local: true do |f| %>
+        <table class="serch_elements">
+          <tr>
+            <td>
+              <%= f.label :name_cont, '車種名' %>
+            </td>
+            <td>
+              <%= f.text_field :name_cont,  placeholder:"車種名を入力",maxlength:"20"%>
+            </td>
+            <td>
+                <%= f.label :mileage_gteq, '走行距離' %>
+                <br>
+                <%= f.number_field :mileage_gteq, value: @car_mileage,placeholder:"走行距離を入力" %>km以上
+                <br>
+                <%= f.number_field :mileage_lteq, value: @car_mileage,placeholder:"走行距離を入力" %>km以下
+            </td>
+            <td>
+              <%= f.label :price_gteq, '本体価格' %>
+              <br>
+              <%= f.number_field :price_gteq, value: @car_price,placeholder:"本体価格を数字で入力" %> 万円以上
+              <br>
+              <%= f.number_field :price_lteq, value: @car_price,placeholder:"本体価格を数字で入力" %> 万円以下
+            </td>
+            <td>
+              <%= f.label :car_code_cont, '車台番号' %>
+            </td>
+            <td>
+              <%= f.text_field :car_code_cont, class:"items-text", id:"item-info",placeholder:"車台番号を入力" ,maxlength:"20" %>
+            </td>
+          </tr>
+            <td>
+                <%= f.label :model_year_cont, '年式' %>
+            </td>
+            <td>
+                <%= f.text_field :model_year_cont, placeholder:"YYYY-MM-DD" %> 
+            </td>
+          <td>
+              <%= f.label :maker_id_eq, 'メーカー' %>
+              </td>
+              <td>
+              <%= f.collection_select(:maker_id_eq, Maker.where.not(id: 1), :id,  :name,{include_blank: true, selected: ''}) %>
+          </td>
+          <td>
+              <%= f.label :prefecture_id_eq, '都道府県' %>
+          </td>
+          <td>
+              <%= f.collection_select(:prefecture_id_eq, Prefecture.where.not(id: 1), :id,  :name,{include_blank: true, selected: ''}) %>
+          </td>
+        </table>
+            
+        <div>
+          <%= f.submit "検索" ,class:"serch_btn" %>
+        </div>
+        </div>
+<% end %>
+
+<!--検索欄ー-------->
+
+
+
+
+<!--検索結果表示画面-------->
+<div class="search_results_index">
+          <% if @search_results.present? %>
+            <% @search_results.each do |r|%>
+                <table>
+                      <tr>
+                        <td>
+                            <%= image_tag r.images[0],:size =>'100x100'%>
+                            <%= link_to "詳細画面へ", car_path(id: r.id), method: :get %>
+                        </td>
+                        <td>
+                            メーカー：<%= r.maker.name %>
+                            車種名:<%= r.name %>
+                            年式：<%= r.model_year %><br>
+                            距離：<%= r.mileage%>km</%>
+                            車台番号：<%= r.car_code%>
+                            価格：<%= r.price.to_f/10000 %>万円</%>
+                        </td>
+                        <td>
+                            所在地：<%= r.prefecture.name%><br>
+                            登録者：<%= r.user.last_name %><%= r.user.first_name %>
+                        </td> 
+                      </tr>
+                </table>
+            <% end %>
+            <% else %>
+              <p>該当する項目の検索結果はありません</p>
+            <%end %>
+</div>
+<!--検索結果表示画面-------->
+</div>
+<!--メイン全体-->

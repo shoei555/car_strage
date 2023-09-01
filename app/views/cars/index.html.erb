@@ -7,7 +7,6 @@
 </p>
 <!--ヘッダー-->
 
-
 <!--メイン全体-->
 <div class="index_main">
 <!--サイドバー-------->
@@ -16,57 +15,55 @@
 <!--サイドバー-------->
 
 <!--検索欄ー-------->
-<div class="serch_bar"> 
-<%= form_with model: @car, id: 'new_car' ,local: true do |f| %>
+<div class="search_bar"> 
+<%= search_form_for @q,url: search_cars_path do |f| %>
         <table class="serch_elements">
           <tr>
-              <td>
-              メーカー
-              </td>
-              <td>
-              <%= f.collection_select(:maker_id, Maker.all, :id, :name, {},  {class:"select-box", id:"item-maker"}) %>
-              </td>
-            
-              <td>
-              年式
-              </td>
-              <td>
-              <%= f.collection_select(:maker_id, Maker.all, :id, :name, {},  {class:"select-box", id:"item-maker"}) %>
-              </td>
-              <td>
-              都道府県
-              </td>
-              <td>
-              <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {},  {class:"select-box", id:"item-prefecture"}) %>
-              </td>
-          </tr>
-
-          <tr>
             <td>
-            車種名
+              <%= f.label :name_cont, '車種名' %>
             </td>
             <td>
-            <%= f.collection_select(:maker_id, Maker.all, :id, :name, {},  {class:"select-box", id:"item-maker"}) %>
+              <%= f.text_field :name_cont,  placeholder:"車種名を入力" ,maxlength:"20"%>
             </td>
             <td>
-            走行距離
+                <%= f.label :mileage_eq, '走行距離' %>
+                <br>
+                  <%= f.number_field :mileage_gteq, value: @car_mileage,placeholder:"走行距離を入力" %>km以上
+                  <br>
+                  <%= f.number_field :mileage_lteq, value: @car_mileage,placeholder:"走行距離を入力" %>km以下
             </td>
             <td>
-            <%= f.collection_select(:maker_id, Maker.all, :id, :name, {},  {class:"select-box", id:"item-maker"}) %>
+              <%= f.label :price_gteq, '本体価格' %>
+              <br>
+              <%= f.number_field :price_gteq, value: @car_price,placeholder:"走行距離を入力" %> 万円以上
+              <br>
+              <%= f.number_field :price_lteq, value: @car_price,placeholder:"走行距離を入力" %> 万円以下
             </td>
             <td>
-            本体価格
+              <%= f.label :car_code_cont, '車台番号' %>
             </td>
             <td>
-            <%= f.collection_select(:maker_id, Maker.all, :id, :name, {},  {class:"select-box", id:"item-maker"}) %>
-            </td>
-            <td>
-            車台番号
-            </td>
-            <td>
-            <%= f.text_field :car_code, class:"items-text", id:"item-info", placeholder:"車台番号入力" ,maxlength:"20" %>
+              <%= f.text_field :car_code_cont, class:"items-text", id:"item-info",placeholder:"車台番号を入力" ,maxlength:"20" %>
             </td>
           </tr>
+            <td>
+                <%= f.label :model_year_cont, '年式' %>
+            </td>
+            <td>
+                <%= f.text_field :model_year_cont, value: @car_model_year,placeholder:"YYYY-MM-DD" %>        
+            </td>
+              <td>
+              <%= f.label :maker_id_eq, 'メーカー' %>
+              </td>
+              <td>
+              <%= f.collection_select(:maker_id_eq, Maker.where.not(id: 1), :id,  :name,{include_blank: true, selected: ''}) %>
+          </td>
+          <td>
+              <%= f.label :prefecture_id_eq, '都道府県' %>
+          </td>
+          <td>
+              <%= f.collection_select(:prefecture_id_eq, Prefecture.where.not(id: 1), :id,  :name,{include_blank: true, selected: ''}) %>
+          </td>
         </table>
             
         <div>
