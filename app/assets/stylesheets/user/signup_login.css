@@ -1,0 +1,108 @@
+/* 全体(新規登録/ログイン) */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* main(新規登録/ログイン) */
+.sign_up_main {
+  margin-bottom: 10px;
+}
+
+/* 見出し(新規登録/ログイン) */
+.sign_up_content h1 {
+  text-align: center;
+  font-size: 200%;
+  font-weight: bolder; 
+  padding-top: 5%;
+  padding-bottom: 3%;
+  border-bottom: 5px solid  #616161;
+}
+
+/* 中央記入ブロック(新規登録/ログイン) */
+.sign_up_content {
+  width: 500px;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+/* フォーム入力欄(新規登録/ログイン) */
+.form-control {
+  height: auto;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #c5c5c5;
+}
+
+/* 入力フォームのラベル(新規登録/ログイン) */
+.field {
+  padding-top: 4%;
+  font-weight: bold;
+}
+
+/* 氏名のラベル(新規登録) */
+.name_field {
+  display: flex;
+}
+
+/* 姓の入力欄（新規登録） */
+.form-control-last {
+  width: 90%;
+  height: auto;
+  padding: 5px;
+  border: 1px solid #c5c5c5;
+}
+
+/* 名の入力欄（新規登録） */
+.form-control-first {
+  height: auto;
+  margin-left: calc(10%);
+  width: 90%;
+  padding: 5px;
+  border: 1px solid #c5c5c5;
+}
+
+/* 送信ボタン（新規登録） */
+.submit_btn {
+  margin: 5% 0% 5% 0%;
+  padding: 5%;
+  width: 100%;
+  background-color: #616161;
+  color: white;
+}
+
+/* 送信ボタン（ログイン） */
+.login_btn {
+  margin: 5% 0% 5% 0%;
+  padding: 5%;
+  width: 100%;
+  background-color: #616161;
+  color: white;
+}
+
+/* 新規登録画面からログイン画面への遷移ボタン */
+.to-new-session {
+  display: block;
+  text-align: center;
+  background-color: #d7ccc8; 
+}
+
+
+/* 新規登録画面からログイン画面への遷移ボタン */
+.to-new-session a {
+  text-decoration-line: none;
+}
+
+/* ログイン画面から新規登録画面への遷移ボタン */
+.to-new-registration {
+  display: block;
+  text-align: center;
+  background-color: #d7ccc8; 
+}
+
+/* ログイン画面から新規登録画面への遷移ボタン */
+.to-new-registration a {
+  text-decoration-line: none;
+}
+
