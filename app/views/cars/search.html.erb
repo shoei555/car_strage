@@ -27,7 +27,7 @@
     <%= search_form_for @q,url: search_cars_path(query: params[:query]), model: @car, id: 'new_car' ,local: true do |f| %>
 
       <div class="search_bar">
-        <table class="search_elements">
+        <table class="serch_elements">
           <tr>
             <td>
               <%= f.label :maker_id_eq, 'メーカー' %>
@@ -66,7 +66,7 @@
         </table>
             
         <div>
-          <%= f.submit "検索" ,class:"search_btn" %>
+          <%= f.submit "検索" ,class:"serch_btn" %>
         </div>
       </div>
       <!--以上検索欄ー-->
