@@ -1,0 +1,47 @@
+<%= search_form_for @q,url: search_cars_path(query: params[:query]), model: @car, id: 'new_car' ,local: true do |f| %>
+
+      <div class="search_bar">
+        <table class="search_parent">
+          <tr class="search_son">
+            <td class="search_sons">
+              <%= f.label :maker_id_eq, 'メーカー' %><br>
+              <%= f.collection_select(:maker_id_eq, Maker.where.not(id: 1), :id,  :name,{include_blank: true, selected: ''}) %>
+            <td class="search_sons">
+              <%= f.label :name_cont, '車種名' %><br>
+              <%= f.text_field :name_cont,  placeholder:"車種名を入力",maxlength:"20"%>
+            </td>
+          </tr>
+          <tr class="search_son">
+            <td class="search_sons">
+              <%= f.label :price_gteq, '本体価格(税込)' %><br>
+              <%= f.number_field :price_gteq, value: @car_price,placeholder:"本体価格を数字で入力" %> 〜
+              <%= f.number_field :price_lteq, value: @car_price,placeholder:"本体価格を数字で入力" %> 万円
+            </td>
+            <td class="search_sons">
+              <%= f.label :model_year_gteq, '年式(※初年度登録)' %><br>
+              <%= f.select :model_year_gteq, options_for_select((1989..Time.now.year).map { |year| [year.to_s + '年', "#{year}-01-01"] }, selected: @car_model_year), include_blank: true %>
+              〜<%= f.select :model_year_lteq, options_for_select((1989..Time.now.year).map { |year| [year.to_s + '年', "#{year}-12-31"] }, selected: @car_model_year), include_blank: true %>
+            </td>
+          </tr>
+          <tr class="search_son">
+            <td class="search_sons">
+              <%= f.label :mileage_gteq, '走行距離' %><br>
+              <%= f.number_field :mileage_gteq, value: @car_mileage,placeholder:"走行距離を入力" %> 〜
+              <%= f.number_field :mileage_lteq, value: @car_mileage,placeholder:"走行距離を入力" %> km
+            </td>
+            <td class="search_sons">
+              <%= f.label :car_code_cont, '車台番号(部分検索可)' %><br>
+              <%= f.text_field :car_code_cont, class:"items-text", id:"item-info",placeholder:"車台番号を入力" ,maxlength:"20" %>
+            </td>
+            <td class="search_sons">
+              <%= f.label :prefecture_id_eq, '都道府県' %><br>
+              <%= f.collection_select(:prefecture_id_eq, Prefecture.where.not(id: 1), :id,  :name,{include_blank: true, selected: ''}) %>
+            </td>
+          </tr>
+        </table>
+            
+        <div class="btn_parent">
+          <%= f.submit "検索" ,class:"search_btn" %>
+        </div>
+      </div>
+<% end %>
