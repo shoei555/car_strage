@@ -27,7 +27,7 @@
 .sign_up_content {
   width: 500px;
   margin: 0 auto;
-  height: 100vh;
+  height: 100%;
 }
 
 /* フォーム入力欄(新規登録/ログイン) */
@@ -109,9 +109,9 @@
   text-decoration-line: none;
 }
 
-footer {
+/* footer {
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
-}
+} */
