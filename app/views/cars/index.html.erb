@@ -47,10 +47,12 @@
             </td>
           </tr>
             <td>
-                <%= f.label :model_year_cont, '年式' %>
+                <%= f.label :model_year_gteq, '年式(※初年度登録)' %>
             </td>
             <td>
-                <%= f.text_field :model_year_cont, value: @car_model_year,placeholder:"YYYY-MM-DD" %>        
+                <%= f.select :model_year_gteq, options_for_select((1989..Time.now.year).map { |year| [year.to_s + '年', "#{year}-01-01"] }, selected: @car_model_year), include_blank: true %>
+                  〜
+                <%= f.select :model_year_lteq, options_for_select((1989..Time.now.year).map { |year| [year.to_s + '年', "#{year}-12-31"] }, selected: @car_model_year), include_blank: true %>        
             </td>
               <td>
               <%= f.label :maker_id_eq, 'メーカー' %>

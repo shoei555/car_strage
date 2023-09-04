@@ -49,10 +49,12 @@
             </td>
           </tr>
             <td>
-                <%= f.label :model_year_cont, '年式' %>
+                <%= f.label :model_year_gteq, '年式' %>
             </td>
             <td>
-                <%= f.text_field :model_year_cont, placeholder:"YYYY-MM-DD" %> 
+                <%= f.select :model_year_gteq, options_for_select((1989..Time.now.year).map { |year| [year.to_s + '年', "#{year}-01-01"] }, selected: @car_model_year), include_blank: true %>
+                  〜
+                <%= f.select :model_year_lteq, options_for_select((1989..Time.now.year).map { |year| [year.to_s + '年', "#{year}-12-31"] }, selected: @car_model_year), include_blank: true %> 
             </td>
           <td>
               <%= f.label :maker_id_eq, 'メーカー' %>
@@ -111,3 +113,30 @@
 <!--検索結果表示画面-------->
 </div>
 <!--メイン全体-->
+
+
+<!--一覧表示画面-------->
+<div class="search_results_index">
+<% @cars.each do |c|%>
+<table>
+      <tr>
+        <td>
+            <%= image_tag c.images[0],:size =>'100x100'%>
+            <%= link_to "詳細画面へ", car_path(id: c.id), method: :get %>
+        </td>
+        <td>
+            メーカー：<%= c.maker.name %>
+            車種名:<%= c.name %>
+            年式：<%= c.model_year%><br>
+            距離：<%= c.mileage%>km</%>
+            車台番号：<%= c.car_code%>
+            価格：<%= c.price.to_f/10000 %>万円</%>
+        </td>
+        <td>
+            所在地：<%= c.prefecture.name%><br>
+            登録者：<%= c.user.last_name %><%= c.user.first_name %>
+        </td> 
+      </tr>
+</table>
+<% end %>
+</div>
