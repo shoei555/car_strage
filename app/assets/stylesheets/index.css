@@ -1,0 +1,47 @@
+
+/* ページ全体の色調 */
+
+
+
+/* 画面上部の検索バー */
+
+p{
+  background-color:#616161;
+  color: aliceblue;
+}
+div{
+  /* border: 3px solid red; */
+}
+
+tr{
+  /* border: 1px solid orange; */
+  display:flex;
+}
+
+.search_bar{
+  display:flex;
+  border: 3px solid greenyellow;
+}
+
+.index_main{
+  border: 3px solid red;
+  display:flex;
+}
+
+.side_bar{
+  height:100vh;
+  width: 30px;
+  border: 1px solid blue;
+  background-color: #9e9eae;
+}
+
+.search_results_index{
+  border: 3px solid plum;
+}
+
+.search_btn{
+  width: 120px;
+  border-radius: 32px;
+  background-color: #333333;
+  color: white;
+}
