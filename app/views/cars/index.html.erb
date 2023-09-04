@@ -12,7 +12,7 @@
           <h2><%= "#{region} (#{Car.where(prefecture_id: prefectures.map(&:id)).count})" %></h2>
           <div class="prefectures" id="<%= region %>-prefectures" style="display:none;">
             <% prefectures.each do |prefecture| %>
-              <%="　#{prefecture.name} (#{Car.where(prefecture_id: prefecture.id).count})"%><br>
+              <%="#{prefecture.name} (#{Car.where(prefecture_id: prefecture.id).count})"%><br>
             <% end %>
           </div>
         </div>
