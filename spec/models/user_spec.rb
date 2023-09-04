@@ -39,18 +39,6 @@ RSpec.describe User, type: :model do
     #   expect(@user.errors.full_messages).to include("Employee num is invalid")
     # end
 
-
-    it 'last_nameが空では登録できない' do
-      @user.last_name = ''
-      @user.valid?
-      expect(@user.errors.full_messages).to include("Last name can't be blank")
-    end
-    it 'last_nameが漢字、カタカナ以外では登録できない' do
-      @user.last_name ='myouji'
-      @user.valid?
-      expect(@user.errors.full_messages).to include("Last name is invalid")
-    end
-    
     it 'first_nameが空では登録できない' do
       @user.first_name = ''
       @user.valid?
@@ -63,6 +51,17 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("First name is invalid")
     end
     
+    it 'last_nameが空では登録できない' do
+      @user.last_name = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Last name can't be blank")
+    end
+    it 'last_nameが漢字、カタカナ以外では登録できない' do
+      @user.last_name ='myouji'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Last name is invalid")
+    end
+
     it 'emailが空では登録できない' do
       @user.email = ''
       @user.valid?
