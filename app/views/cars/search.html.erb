@@ -28,7 +28,7 @@
     <!--以上検索欄ー-->
 
       <!--以下一覧表示画面-->
-      <h3 class="index_headline">検索結果一覧</h3>
+      <h3 class="index_headline"><%="検索結果一覧 #{@search_results.count}件"%></h3>
 
       <div class="search_results">
         <% if @search_results.present? %>
