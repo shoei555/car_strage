@@ -4,6 +4,10 @@
   <div class = "sign_up_content">
     <h1>ログイン</h1>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+         <div class='login-flash-message'>
+            <%= flash[:notice] %>
+            <%= flash[:alert] %>
+          </div>
         <div class="field">
           <%= f.label :employee_num,"社員番号" %><br/>
           <%= f.text_field :employee_num, class:"form-control",autofocus: true, maxlength: 6 %>
