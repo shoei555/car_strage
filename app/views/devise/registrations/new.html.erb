@@ -1,47 +1,46 @@
-<%= render "devise/shared/header" %>
+<div class = "wrapper">
+  <%= render "devise/shared/header" %>
+    <div class = "sign_up_content">
+        <h1>新規登録</h1>
+      <div class = "sign_up_field">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-<h2>新規登録</h2>
+              <div class="field">
+                <%= f.label :employee_num,"社員番号" %><br />
+                <%= f.text_field :employee_num, class:"form-control", autofocus: true, maxlength: 6, placeholder:"※半角数字6桁" %>
+              </div>
+            <br>
+            <b><%= f.label :last_name,"氏名" %></b>
+            <div class = "name_field">   
+                <%= f.text_field :last_name,  class:"form-control-last",autofocus: true, autocomplete: "family-name", placeholder: "姓"%>
+                <%# <%= f.label :first_name,"" %>
+                <%= f.text_field :first_name,  class:"form-control-first",autofocus: true, autocomplete: "given-name",placeholder: "名" %>
+            </div> 
+              <div class="field">
+                <%= f.label :email,"メールアドレス" %><br />
+                <%= f.email_field :email,  class:"form-control",autofocus: true, autocomplete: "email" %>
+              </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+              <div class="field">
+                <%= f.label :password,"パスワード" %><br />
+                <%= f.password_field :password,  class:"form-control",autocomplete: "new-password", placeholder:"※半角英数を含む6文字以上" %>
+              </div>
 
-  <div class="field">
-    <%= f.label :employee_num,"社員番号" %><br />
-    <%= f.text_field :employee_num, autofocus: true, maxlength: 6 %>
-  </div>
+              <div class="field">
+                <%= f.label :password_confirmation,"パスワード(確認用)" %><br />
+                <%= f.password_field :password_confirmation,  class:"form-control",autocomplete: "new-password",placeholder:"確認用" %>
+              </div>
+          
 
-  <div class="field">
-    <%= f.label :last_name,"姓" %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "family-name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :first_name,"名" %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "given-name" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :email,"メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password,"パスワード" %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %>文字以上10文字以内)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation,"確認用パスワード" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
- 
-
-  <div class="actions">
-    <%= f.submit "新規登録" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+              <div class="actions">
+                <%= f.submit "新規登録", class:"submit_btn" %>
+              </div>
+          <% end %>
+      </div>
+      <div class = "to-new-session">
+      <%= link_to "アカウント登録済みの方はこちら", new_session_path(resource_name) %>
+      </div>
+    </div>  
+  <%= render "layouts/footer" %>
+</div>  

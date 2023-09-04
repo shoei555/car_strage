@@ -1,10 +1,9 @@
 class CarsController < ApplicationController
-before_action :log_out, only:[:index, :new]
+before_action :log_out, only:[:index, :new, :show, :edit]
 before_action :set_car, only:[:show, :edit, :update, :destroy]
 
   def index
     @cars = Car.all
-    
   end
 
   def new
@@ -38,6 +37,24 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
   def destroy
     @car.destroy
     redirect_to root_path
+  end
+
+  def search
+    @q = Car.ransack(params[:q])
+    @search_results = @q.result
+    @car_price = Car.pluck(:price)
+    @car_model_year = Car.pluck(:model_year)
+    @car_mileage = Car.pluck(:mileage)
+    #@car_name = Car.pluck(:name)
+    #一旦コメントアウト
+    # @q = Car.ransack(params[:q])
+    
+    
+    
+    # @car_price = Car.pluck(:price)
+    # @search_result = @q.result(distinct: true)
+    # query = params[:query]
+    # @search_results = Car.where("name LIKE ?", "%#{query}%")
   end
 
   private
