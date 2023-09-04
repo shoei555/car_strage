@@ -6,7 +6,7 @@ class Maker < ActiveHash::Base
     { id: 4, name: '日産' },
     { id: 5, name: 'スバル' },
     { id: 6, name: 'マツダ' },
-    { id: 7, name: 'ミツビシ' },
+    { id: 7, name: '三菱' },
     { id: 8, name: 'スズキ' },
     { id: 9, name: 'ダイハツ' },
     { id: 10, name: 'レクサス' },
