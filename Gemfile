@@ -95,6 +95,7 @@ gem 'rspec-rails'
 gem 'factory_bot_rails'
 gem 'pry-rails'
 
+#日本語のエラー文
+gem 'rails-i18n'
 
 gem 'ransack'
-
