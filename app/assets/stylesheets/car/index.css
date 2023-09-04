@@ -1,0 +1,81 @@
+.index_container {
+  width: 100vw;
+  min-height : calc(100vh - 100px);
+  display: flex;
+}
+
+.side_bar {
+  width: 20vw;
+  background-color: #9e9eae;
+  font-size: 20px;
+}
+
+.side_bar_wrapper {
+  margin: 30px;
+}
+
+.side-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.search_bar {
+  width: 80vw;
+  padding: 50px;
+  background-color: #f3decb;
+}
+
+.search_elements {
+  margin: 0 auto;
+}
+
+.search_btn {
+  display: flex;
+  justify-content: right;
+}
+
+.index_headline {
+  text-align: center;
+  margin:30px 0;
+  font-size: 36px;
+}
+
+.search_results {
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  flex-wrap : wrap;
+}
+
+.car_item {
+  padding: 20px;
+  margin: 30px;
+  background-color: #e0e0e0;
+}
+
+.car_img {
+  width:300px;
+  height:222px;
+  object-fit: cover;
+}
+
+.car_info_main {
+  display: flex;
+  justify-content:space-between ;
+  font-size: 25px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.car_item_name {
+
+}
+
+.car_info_link {
+  display: block;
+  padding: 3px;
+  margin-top: 10px;
+  text-align: center;
+  background-color: #616161;
+  text-decoration:none;
+  color: white;
+}
