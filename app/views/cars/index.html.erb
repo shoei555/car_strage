@@ -24,85 +24,13 @@
   <div class="index_main_wrapper">
 
     <!--以下検索欄ー-->
-    <%= search_form_for @q,url: search_cars_path(query: params[:query]), model: @car, id: 'new_car' ,local: true do |f| %>
-
-      <div class="search_bar">
-        <table class="search_elements">
-          <tr>
-            <td>
-              <%= f.label :maker_id_eq, 'メーカー' %>
-              <%= f.collection_select(:maker_id_eq, Maker.where.not(id: 1), :id,  :name,{include_blank: true, selected: ''}) %>
-              　　　<%= f.label :name_cont, '車種名' %>
-              <%= f.text_field :name_cont,  placeholder:"車種名を入力",maxlength:"20"%>
-            </td>
-            <td><%= f.label :model_year_gteq, '年式' %>
-              <%= f.select :model_year_gteq, options_for_select((1989..Time.now.year).map { |year| [year.to_s + '年', "#{year}-01-01"] }, selected: @car_model_year), include_blank: true %>
-              〜
-              <%= f.select :model_year_lteq, options_for_select((1989..Time.now.year).map { |year| [year.to_s + '年', "#{year}-12-31"] }, selected: @car_model_year), include_blank: true %></td>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <%= f.label :price_gteq, '本体価格' %>
-              <%= f.number_field :price_gteq, value: @car_price,placeholder:"本体価格を数字で入力" %> 〜
-              <%= f.number_field :price_lteq, value: @car_price,placeholder:"本体価格を数字で入力" %> 万円
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <%= f.label :mileage_gteq, '走行距離' %>
-              <%= f.number_field :mileage_gteq, value: @car_mileage,placeholder:"走行距離を入力" %> 〜
-              <%= f.number_field :mileage_lteq, value: @car_mileage,placeholder:"走行距離を入力" %> km
-            </td>
-            <td>
-              <%= f.label :car_code_cont, '車台番号' %>
-              <%= f.text_field :car_code_cont, class:"items-text", id:"item-info",placeholder:"車台番号を入力" ,maxlength:"20" %>
-            </td>
-            <td>
-              <%= f.label :prefecture_id_eq, '都道府県' %>
-              <%= f.collection_select(:prefecture_id_eq, Prefecture.where.not(id: 1), :id,  :name,{include_blank: true, selected: ''}) %>
-            </td>
-          </tr>
-        </table>
-            
-        <div>
-          <%= f.submit "検索" ,class:"search_btn" %>
-        </div>
-      </div>
-      <!--以上検索欄ー-->
+       <%= render "cars/search" %>   
+    <!--以上検索欄ー-->
 
       <!--以下一覧表示画面-->
-      <h3 class="index_headline">検索結果一覧</h3>
+      <h3 class="index_headline">在庫一覧</h3>
 
       <div class="search_results">
-        <% if @search_results.present? %>
-
-          <% @search_results.each do |car|%>
-            <div class="car_item">
-              <%= image_tag car.images[0], class:"car_img"%>
-              <div class="car_info">
-                <%= "#{car.model_year.strftime("%Y年式")}#{car.maker.name}"%>
-                <div class="car_info_main">
-                  <div class="car_item_name">
-                    <%= "#{car.name}" %>
-                  </div>
-                  <div class="car_item_price">
-                    <%= car.price %>万円
-                  </div>
-                </div>
-                <div class="car_info_sub">
-                  距離：<%= car.mileage%>km<br>
-                  車台番号：<%= car.car_code%><br>
-                  所在地：<%= car.prefecture.name%><br>
-                  更新日：<%= car.created_at.strftime("%Y年%m月%d日")%>
-                </div>
-                <div >
-                  <%= link_to "詳細画面", car_path(id: car.id), method: :get ,class:"car_info_link"%>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% else %>
           <% @cars.each do |car|%>
             <div class="car_item">
               <%= image_tag car.images[0], class:"car_img"%>
@@ -128,10 +56,8 @@
               </div>
             </div>
           <% end %>
-        <% end %>
       </div>
     <!--以上一覧表示画面-->
-    <% end %>
 
   </div>
 
