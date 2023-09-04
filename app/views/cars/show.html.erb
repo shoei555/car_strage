@@ -1,50 +1,73 @@
 <%= render "cars/header" %>
 
-<p>以下、詳細画面表示<p>
-<% if user_signed_in? %>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-  <%= link_to "在庫一覧画面へ", root_path, method: :get %>
-<% end %>
+<div class="show-container">
+  <div class="show-wrapper">
+    <div class="headline">
+      <%= "#{@car.model_year.strftime("%Y年式")} #{@car.maker.name} #{@car.name}" %>
+    </div>
 
-<table>
-  <tr>
-    <%= image_tag @car.images[0],:size =>'500x350'%>
-  </tr>
-  <tr>
-    <td>メーカー</td>
-    <td><%= @car.maker.name %></td>
-  </tr>
-  <tr>
-    <td>車種名</td>
-    <td><%= @car.name %></td>
-  </tr>
-  <tr>
-    <td>年式：</td>
-    <td><%= @car.model_year %></td>
-  </tr>
-  <tr>
-    <td>距離：</td>
-    <td><%= @car.mileage %>km</td>
-  </tr>
-  <tr>
-    <td>車台番号：</td>
-    <td><%= @car.car_code%></td>
-  </tr>
-  <tr>
-    <td>価格：</td>
-    <td><%= @car.price.to_f/10000 %>万円</td>
-  </tr>
-  <tr>
-    <td>所在地：</td>
-    <td><%= @car.prefecture.name%></td>
-  </tr>
-  <tr>
-    <td>登録者：</td>
-    <td><%= @car.user.last_name%><%= @car.user.first_name %></td>
-  </tr>
-</table>
+    <%= image_tag @car.images[0], class:"preview-main-img", id:"main-image"%>
 
-  <%= link_to "編集画面へ", edit_car_path(id: @car.id), method: :get %>
-  <%= link_to "削除", car_path(id: @car.id), data: { turbo_method: :delete} %>
+    <div class="img-list">
+      <%= image_tag @car.images[0], class:"preview-img" if @car.images[0].present?%>
+      <%= image_tag @car.images[1], class:"preview-img" if @car.images[1].present?%>
+      <%= image_tag @car.images[2], class:"preview-img" if @car.images[2].present?%>
+      <%= image_tag @car.images[3], class:"preview-img" if @car.images[3].present?%>
+      <%= image_tag @car.images[4], class:"preview-img" if @car.images[4].present?%>
+      <%= image_tag @car.images[5], class:"preview-img" if @car.images[5].present?%>
+    </div>
+
+    <table class="car-detail">
+      <tr>
+        <td class="item-name">年式：</td>
+        <td><%= @car.model_year.strftime("%Y年%m月") %></td>
+        <td class="item-name">価格：</td>
+        <td><%= "#{@car.price}万円" %></td>
+      </tr>
+      <tr>
+        <td class="item-name">車検日</td>
+        <td><%= @car.car_inspection.strftime("%Y年%m月%d日") %></td>
+        <td class="item-name">車台番号：</td>
+        <td><%= @car.car_code%></td>
+      </tr>
+      <tr>
+        <td class="item-name">所在地：</td>
+        <td><%= @car.prefecture.name%></td>
+        <td class="item-name">排気量</td>
+        <td><%= "#{@car.displacement}cc" %></td>
+      </tr>
+      <tr>
+        <td class="item-name">距離：</td>
+        <td><%= @car.mileage %>km</td>
+        <td class="item-name">燃料</td>
+        <td><%= @car.car_fuel %></td>
+      </tr>
+      <tr>
+        <td class="item-name">駆動方式</td>
+        <td><%= @car.wheel_drive %></td>
+        <td class="item-name">外装色</td>
+        <td><%= @car.car_color %></td>
+      </tr>
+      <tr>
+        <td class="item-name">登録日</td>
+        <td><%= @car.created_at.strftime("%Y年%m月%d日")%></td>
+        <td class="item-name">在庫日数</td>
+        <td><%= (Time.zone.now - @car.created_at).to_i / 1.day %></td>
+      </tr>
+      <tr>
+        <td class="item-name">登録者</td>
+        <td><%= @car.user.last_name%><%= @car.user.first_name %></td>
+        <td class="item-name">最終更新者</td>
+        <td><%= User.find(@car.editer_id).last_name %><%= User.find(@car.editer_id).first_name %></td>
+      </tr>
+    </table>
+
+    <div class="show-buttons">
+      <%= link_to "編集", edit_car_path(id: @car.id), method: :get, id:"edit-button" %>
+      <%= link_to "削除", car_path(id: @car.id), data: { turbo_method: :delete }, id: "delete-button" %>
+    </div>
+
+  </div>
+</div>
 
   <%= render "layouts/footer" %>

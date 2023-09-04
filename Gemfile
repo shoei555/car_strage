@@ -97,3 +97,4 @@ gem 'pry-rails'
 
 
 gem 'ransack'
+

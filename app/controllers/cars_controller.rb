@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-before_action :log_out, only:[:index, :new]
+before_action :log_out, only:[:index, :new, :show, :edit]
 before_action :set_car, only:[:show, :edit, :update, :destroy]
 
   def index
@@ -23,6 +23,7 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
     else
       render :new
     end
+
   end
 
   def show
@@ -32,7 +33,7 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
   end
 
   def update
-    if @car.update(car_params)
+    if @car.update(car_edit_params)
       redirect_to car_path
     else
       render :edit 
@@ -64,7 +65,11 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
 
   private
   def car_params
-    params.require(:car).permit(:name, :maker_id, :model_year, :mileage, :prefecture_id, :price, :car_code, {images: []}).merge(user_id: current_user.id)
+    params.require(:car).permit(:name, :maker_id, :model_year, :mileage, :prefecture_id, :price, :car_code,:car_inspection,:displacement,:car_color,:wheel_drive, :car_fuel,:tag_id,{images: []}).merge(user_id: current_user.id,editer_id: current_user.id)
+  end
+
+  def car_edit_params
+    params.require(:car).permit(:name, :maker_id, :model_year, :mileage, :prefecture_id, :price, :car_code,:car_inspection,:displacement,:car_color,:wheel_drive, :car_fuel,:tag_id,{images: []}).merge(editer_id: current_user.id)
   end
   
   def log_out #ログアウト状態ではログイン画面へ遷移
