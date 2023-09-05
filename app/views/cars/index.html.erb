@@ -32,6 +32,23 @@
       <div class="search_results">
           <% @cars.each do |car|%>
             <div class="car_item">
+              <% if car.tag.name == "新着"%>
+                <div class ="car_tag_2"><%= car.tag.name %></div>
+              <% elsif car.tag.name == "売り切り"%>
+                <div class ="car_tag_3"><%= car.tag.name %></div>
+              <% elsif car.tag.name == "長期在庫"%>
+                <div class ="car_tag_4"><%= car.tag.name %></div>
+              <% elsif car.tag.name == "陸送中"%>
+                <div class ="car_tag_5"><%= car.tag.name %></div>
+              <% elsif car.tag.name == "抹消済み"%>
+                <div class ="car_tag_6"><%= car.tag.name %></div>
+              <% elsif car.tag.name == "自社名中"%>
+                <div class ="car_tag_7"><%= car.tag.name %></div>
+              <% elsif car.tag.name == "廃車"%>
+                <div class ="car_tag_8"><%= car.tag.name %></div>
+              <% elsif car.tag.name == "事故車"%>
+                <div class ="car_tag_9"><%= car.tag.name %></div>
+              <% end %> 
               <%= image_tag car.images[0], class:"car_img"%>
               <div class="car_info">
                 <%= "#{car.model_year.strftime("%Y年式")}#{car.maker.name}"%>

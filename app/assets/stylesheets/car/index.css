@@ -88,12 +88,93 @@
   padding: 20px;
   margin: 30px;
   background-color: #e0e0e0;
+  position: relative;
 }
 
-.car_img {
-  width:300px;
-  height:222px;
-  object-fit: cover;
+.car_img{
+  width: 300px;
+  height: 200px;
+}
+
+/* タグのデザイン */
+.car_tag_2 {
+  padding: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: -30px;
+  background-color: #fdd735;
+  text-align: center;
+}
+.car_tag_3 {
+  padding: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: -30px;
+  background-color: #7384e5;
+  text-align: center;
+}
+.car_tag_4 {
+  padding: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: -30px;
+  color: white;
+  background-color: #da0928;
+  text-align: center;
+}
+
+.car_tag_5 {
+  padding: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: -30px;
+  background-color: #18d47a;
+  text-align: center;
+}
+
+.car_tag_6 {
+  padding: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: -30px;
+  background-color: #73cce5;
+  text-align: center;
+}
+
+.car_tag_7 {
+  padding: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: -30px;
+  background-color: #dce573;
+  text-align: center;
+}
+
+.car_tag_8 {
+  padding: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: -30px;
+  background-color: #e57b73;
+  text-align: center;
+}
+
+.car_tag_9 {
+  padding: 10px;
+  border-radius: 50%;
+  color: #e0e0e0;
+  position: absolute;
+  top: -10px;
+  left: -30px;
+  background-color: #2a2727;
+  text-align: center;
 }
 
 .car_info_main {
