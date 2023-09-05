@@ -11,12 +11,110 @@
  
 }
 
+
+
 .headline {
   font-size: 50px;
   text-align: center;
   padding: 20px;
   padding-top: 50px;
+  position: relative;
 }
+
+/*詳細画面で表示用のタグ*/
+
+
+.show_tag_2 {
+  padding: 10px;
+  border-radius: 20%;
+  position: absolute;
+  bottom: 32px;
+  left: -60px;
+  font-size:20px;
+  background-color: #fdd735;
+
+}
+
+
+.show_tag_3 {
+  padding: 10px;
+  border-radius: 20%;
+  position: absolute;
+  bottom: 32px;
+  left: -60px;
+  font-size:20px;
+  background-color: #7384e5;
+}
+
+
+.show_tag_4 {
+  color: white;
+  padding: 10px;
+  border-radius: 20%;
+  position: absolute;
+  bottom: 32px;
+  left: -60px;
+  font-size:20px;
+  background-color: #da0928;
+}
+
+
+.show_tag_5 {
+  padding: 10px;
+  border-radius: 20%;
+  position: absolute;
+  bottom: 32px;
+  left: -60px;
+  font-size:20px;
+  background-color: #18d47a;
+}
+
+
+.show_tag_6 {
+  padding: 10px;
+  border-radius: 20%;
+  position: absolute;
+  bottom: 32px;
+  left: -60px;
+  font-size:20px;
+  background-color: #73cce5;
+}
+
+
+.show_tag_7 {
+  padding: 10px;
+  border-radius: 20%;
+  position: absolute;
+  bottom: 32px;
+  left: -60px;
+  font-size:20px;
+  background-color: #dce573;
+}
+
+
+.show_tag_8 {
+  padding: 10px;
+  border-radius: 20%;
+  position: absolute;
+  bottom: 32px;
+  left: -60px;
+  font-size:20px;
+  background-color: #e57b73;
+}
+
+.show_tag_9 {
+  color: #e0e0e0;
+  padding: 10px;
+  border-radius: 20%;
+  position: absolute;
+  bottom: 32px;
+  left: -60px;
+  font-size:20px;
+  background-color: #2a2727;
+}
+
+
+
 
 .preview-main-img {
   width:600px;

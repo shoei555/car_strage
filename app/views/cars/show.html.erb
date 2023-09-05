@@ -4,8 +4,24 @@
   <div class="show-wrapper">
     <div class="headline">
       <%= "#{@car.model_year.strftime("%Y年式")} #{@car.maker.name} #{@car.name}" %>
+      <% if @car.tag.name == "新着"%>
+          <div class ="show_tag_2"><%= @car.tag.name %></div>
+        <% elsif @car.tag.name == "売り切り"%>
+          <div class ="show_tag_3"><%= @car.tag.name %></div>
+        <% elsif @car.tag.name == "長期在庫"%>
+          <div class ="show_tag_4"><%= @car.tag.name %></div>
+        <% elsif @car.tag.name == "陸送中"%>
+          <div class ="show_tag_5"><%= @car.tag.name %></div>
+        <% elsif @car.tag.name == "抹消済み"%>
+          <div class ="show_tag_6"><%= @car.tag.name %></div>
+        <% elsif @car.tag.name == "自社名中"%>
+          <div class ="show_tag_7"><%= @car.tag.name %></div>
+        <% elsif @car.tag.name == "廃車"%>
+          <div class ="show_tag_8"><%= @car.tag.name %></div>
+        <% elsif @car.tag.name == "事故車"%>
+          <div class ="show_tag_9"><%= @car.tag.name %></div>
+      <% end %> 
     </div>
-
     <%= image_tag @car.images[0], class:"preview-main-img", id:"main-image"%>
 
     <div class="img-list">
