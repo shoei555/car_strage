@@ -57,7 +57,7 @@
         <br>
         <div>
           <div class="item">カラー</div>
-          <%= f.collection_select(:car_color, Color.all, :id, :name, {},  {class:"select-box", id:"item-maker"}) %>
+          <%= f.collection_select(:color_id, Color.all, :id, :name, {},  {class:"select-box", id:"item-maker"}) %>
         </div>
       </div>
 
@@ -110,7 +110,7 @@
           <div class="wheel_drive__registration">
               <div class="item">駆動方式</div>
               <div class="registration_box">
-                <%= f.collection_select(:wheel_drive, Wheeldrive.all, :id, :name, {},  {class:"select-box", id:"item-prefecture"}) %>
+                <%= f.collection_select(:wheeldrive_id, Wheeldrive.all, :id, :name, {},  {class:"select-box", id:"item-prefecture"}) %>
               </div>
           </div>
           <div class="t">
@@ -132,7 +132,7 @@
           <div class="car_fuel__registration">
               <div class="item">燃料</div>
               <div class="registration_box">
-                <%= f.collection_select(:car_fuel, Carfuel.all, :id, :name, {},  {class:"select-box", id:"item-prefecture"}) %>
+                <%= f.collection_select(:fuel_id, Fuel.all, :id, :name, {},  {class:"select-box", id:"item-prefecture"}) %>
               </div>
           </div>
         </div>

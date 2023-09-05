@@ -45,27 +45,15 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
     @car_price = Car.pluck(:price)
     @car_model_year = Car.pluck(:model_year)
     @car_mileage = Car.pluck(:mileage)
-    #@car_name = Car.pluck(:name)
-    #一旦コメントアウト
-    # @q = Car.ransack(params[:q])
-    
-    
-    
-    # @car_price = Car.pluck(:price)
-    # @search_result = @q.result(distinct: true)
-    # query = params[:query]
-    # @search_results = Car.where("name LIKE ?", "%#{query}%")
   end
 
   private
   def car_params
-
-
-    params.require(:car).permit(:name, :maker_id, :model_year, :mileage, :prefecture_id, :price, :car_code,:car_inspection,:displacement,:car_color,:wheel_drive, :car_fuel,:tag_id,{images: []}).merge(user_id: current_user.id,editer_id: current_user.id)
+    params.require(:car).permit(:name, :maker_id, :model_year, :mileage, :prefecture_id, :price, :car_code,:car_inspection,:displacement,:color_id,:wheeldrive_id, :fuel_id,:tag_id,{images: []}).merge(user_id: current_user.id,editer_id: current_user.id)
   end
 
   def car_edit_params
-    params.require(:car).permit(:name, :maker_id, :model_year, :mileage, :prefecture_id, :price, :car_code,:car_inspection,:displacement,:car_color,:wheel_drive, :car_fuel,:tag_id,{images: []}).merge(editer_id: current_user.id)
+    params.require(:car).permit(:name, :maker_id, :model_year, :mileage, :prefecture_id, :price, :car_code,:car_inspection,:displacement,:car_color_id,:wheel_drive_id, :car_fuel_id,:tag_id,{images: []}).merge(editer_id: current_user.id)
   end
   
   def log_out #ログアウト状態ではログイン画面へ遷移
@@ -77,6 +65,10 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
   def set_car
     @car = Car.find(params[:id])
   end
+
+  # def show_car
+  #   @car = Car.find_by(id: @car.color_id)
+  # end
 
   
 

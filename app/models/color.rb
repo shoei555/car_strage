@@ -14,11 +14,9 @@ class Color < ActiveHash::Base
     { id: 12, name: 'グレー' },
     { id: 13, name: 'イエロー' },
     { id: 14, name: 'パープル' },
-    { id: 15, name: 'アイボリー' },
+    { id: 15, name: 'アイボリー' }
   ]
 
   include ActiveHash::Associations
   has_many :cars
-
-  
 end

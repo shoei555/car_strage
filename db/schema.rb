@@ -50,9 +50,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_28_031404) do
     t.bigint "user_id", null: false
     t.date "car_inspection", null: false
     t.integer "displacement", null: false
-    t.string "car_color", null: false
-    t.string "wheel_drive", null: false
-    t.string "car_fuel", null: false
+    t.integer "color_id", null: false
+    t.integer "wheeldrive_id", null: false
+    t.integer "fuel_id", null: false
     t.bigint "editer_id"
     t.integer "tag_id"
     t.datetime "created_at", null: false
