@@ -43,6 +43,7 @@
   align-items: center;
   flex:1 0 50%;
   border: none;
+  font-weight: bold;
 }
 
 .btn_parent{

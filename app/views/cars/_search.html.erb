@@ -14,8 +14,8 @@
           <tr class="search_son">
             <td class="search_sons">
               <%= f.label :price_gteq, '本体価格(税込)' %><br>
-              <%= f.number_field :price_gteq, value: @car_price,placeholder:"本体価格を数字で入力" %> 〜
-              <%= f.number_field :price_lteq, value: @car_price,placeholder:"本体価格を数字で入力" %> 万円
+              <%= f.number_field :price_gteq, value: @car_price,placeholder:"本体価格を数字で入力" %> 万円以上
+              <%= f.number_field :price_lteq, value: @car_price,placeholder:"本体価格を数字で入力" %> 万円以下
             </td>
             <td class="search_sons">
               <%= f.label :model_year_gteq, '年式(※初年度登録)' %><br>
@@ -26,8 +26,8 @@
           <tr class="search_son">
             <td class="search_sons">
               <%= f.label :mileage_gteq, '走行距離' %><br>
-              <%= f.number_field :mileage_gteq, value: @car_mileage,placeholder:"走行距離を入力" %> 〜
-              <%= f.number_field :mileage_lteq, value: @car_mileage,placeholder:"走行距離を入力" %> km
+              <%= f.number_field :mileage_gteq, value: @car_mileage,placeholder:"走行距離を入力" %>km以上 
+              <%= f.number_field :mileage_lteq, value: @car_mileage,placeholder:"走行距離を入力" %> km以下
             </td>
             <td class="search_sons">
               <%= f.label :car_code_cont, '車台番号(部分検索可)' %><br>
