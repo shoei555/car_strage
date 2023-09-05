@@ -24,7 +24,7 @@
 .search_bar {
   padding: 50px;
   
-  border-bottom:1px solid #333333;
+  /*border-bottom:1px solid #333333;*/
   display: flex;
 }
 
