@@ -45,7 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_28_031404) do
     t.date "model_year", null: false
     t.integer "mileage", null: false
     t.integer "prefecture_id", null: false
-    t.integer "price", null: false
+    t.float "price", null: false
     t.string "car_code", null: false
     t.bigint "user_id", null: false
     t.date "car_inspection", null: false

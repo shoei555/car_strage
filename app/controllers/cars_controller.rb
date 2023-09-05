@@ -59,6 +59,8 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
 
   private
   def car_params
+
+
     params.require(:car).permit(:name, :maker_id, :model_year, :mileage, :prefecture_id, :price, :car_code,:car_inspection,:displacement,:car_color,:wheel_drive, :car_fuel,:tag_id,{images: []}).merge(user_id: current_user.id,editer_id: current_user.id)
   end
 
@@ -75,5 +77,7 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
   def set_car
     @car = Car.find(params[:id])
   end
+
+  
 
 end
