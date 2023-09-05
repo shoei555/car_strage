@@ -14,6 +14,7 @@ class Car < ApplicationRecord
     validates :car_fuel                                                        #燃料
     validates :wheel_drive                                                     #駆動方式
     validates :user_id
+
   end
   
 
@@ -28,4 +29,11 @@ class Car < ApplicationRecord
   belongs_to :wheeldrive
   belongs_to :carfuel
   belongs_to :tag
+
+
+  #検索機能用のクラスメソッド
+  def self.ransackable_attributes(auth_object = nil)
+    ["maker_id","model_year","prefecture_id", "name", "mileage","price","car_code",] #検索対象：メーカー、年式、都道府県、車種名、走行距離、本体価格、車台番号
+  end
+
 end

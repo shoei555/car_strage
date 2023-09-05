@@ -53,9 +53,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_28_031404) do
     t.string "car_color", null: false
     t.string "wheel_drive", null: false
     t.string "car_fuel", null: false
+    t.bigint "editer_id"
     t.integer "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["editer_id"], name: "index_cars_on_editer_id"
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 

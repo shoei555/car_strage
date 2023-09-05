@@ -120,6 +120,7 @@
                 <%= f.collection_select(:tag_id, Tag.all, :id, :name, {},  {class:"select-box", id:"item-prefecture"}) %>
               </div>
           </div>
+
         </div>
         <br>
         <div class="input_three_box">
@@ -138,6 +139,61 @@
           </div>
         </div>
         <br>
+          <%= f.text_field :price, class:"items-text", id:"item-info", placeholder:"価格入力" ,rows:"7" ,maxlength:"1000" %> 
+      </div>
+      <div class="items-explain">
+          <div class="weight-bold-text">
+            車検日
+            <span class="indispensable">必須</span>
+          </div>
+          
+        <%= raw sprintf(
+                    f.date_select(
+                      :car_inspection,
+                      class:'select-year',
+                      id:"car_inspection",
+                      use_month_numbers: true,
+                      prompt:'--',
+                      start_year: (Time.now.year + 5),
+                      end_year: 1989,
+                      date_separator: '%s'),
+                    "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+      </div>
+      <div class="items-explain">
+          <div class="weight-bold-text">
+            排気量
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :displacement, class:"items-text", id:"item-info", placeholder:"排気量入力" ,rows:"7" ,maxlength:"1000" %> 
+      </div>
+      <div class="items-explain">
+          <div class="weight-bold-text">
+            外装色
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :car_color, class:"items-text", id:"item-info", placeholder:"外装色入力" ,rows:"7" ,maxlength:"1000" %> 
+      </div>
+      <div class="items-explain">
+          <div class="weight-bold-text">
+            駆動方式
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :wheel_drive, class:"items-text", id:"item-info", placeholder:"駆動方式入力" ,rows:"7" ,maxlength:"1000" %> 
+      </div>
+      <div class="items-explain">
+          <div class="weight-bold-text">
+            燃料種類
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :car_fuel, class:"items-text", id:"item-info", placeholder:"燃料種類入力" ,rows:"7" ,maxlength:"1000" %> 
+      </div>
+      <%# /商品名と商品説明 %>
+
+      
+      <%# 下部ボタン %>
+      <div class="sell-btn-contents">
+        <%= f.submit "登録する" ,class:"sell-btn" %>
+      </div>
 
 
         <div class="input_four_box">

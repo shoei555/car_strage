@@ -1,0 +1,57 @@
+.show-container {
+
+  height:100hw;
+  
+}
+
+.show-wrapper {
+  width:1000px;
+  margin: 0 auto;
+  text-align: center;
+ 
+}
+
+.headline {
+  font-size: 50px;
+  text-align: center;
+  padding: 20px;
+  padding-top: 50px;
+}
+
+.preview-main-img {
+  width:600px;
+  height:450px;
+  object-fit: cover;
+}
+
+.preview-img {
+  width:100px;
+  height:74px;
+  object-fit: cover;
+}
+
+.car-detail {
+  border: solid 1px #e0e0e0;
+  width:100%;
+  margin:30px 0;
+}
+
+td, th {
+  border: solid 1px #e0e0e0;
+  height: 30px;
+}
+
+.item-name {
+  background-color: #616161;
+  color:white;
+}
+
+.show-buttons {
+  padding-bottom: 30px;
+  font-size: 30px;
+}
+
+#edit-button {
+  padding-right:30px;
+}
+

@@ -3,6 +3,11 @@
   height: 50px;
   width:100%;
   background-color: #616161;
+  position: fixed; /* ヘッダーを固定する */
+  top: 0; /* 上部から配置の基準位置を決める */
+  left: 0; /* 左から配置の基準位置を決める */
+
+
 }
 
 .app-logo {
@@ -26,6 +31,11 @@
   padding:0 10px;
   font-family: 'Roboto Condensed', sans-serif;
   color: white;
+  position: fixed; /* ヘッダーを固定する */
+  top: 0; /* 上部から配置の基準位置を決める */
+  left: 0; /* 左から配置の基準位置を決める */
+
+
 }
 
 .app-logo2 {

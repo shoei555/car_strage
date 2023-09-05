@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        employee_num: 社員番号
+        first_name: 名
+        last_name: 姓

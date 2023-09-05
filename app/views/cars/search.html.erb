@@ -1,4 +1,5 @@
 <%= render "cars/header" %>
+
 <div class="index_container">
 
   <!--サイドバー-->
@@ -11,7 +12,7 @@
           <h2><%= "#{region} (#{Car.where(prefecture_id: prefectures.map(&:id)).count})" %></h2>
           <div class="prefectures" id="<%= region %>-prefectures" style="display:none;">
             <% prefectures.each do |prefecture| %>
-              <%="#{prefecture.name} (#{Car.where(prefecture_id: prefecture.id).count})"%><br>
+              <%="　#{prefecture.name} (#{Car.where(prefecture_id: prefecture.id).count})"%><br>
             <% end %>
           </div>
         </div>
@@ -23,14 +24,15 @@
   <div class="index_main_wrapper">
 
     <!--以下検索欄ー-->
-       <%= render "cars/search" %>   
+      <%= render "cars/search" %>
     <!--以上検索欄ー-->
 
       <!--以下一覧表示画面-->
-      <h3 class="index_headline">在庫一覧</h3>
+      <h3 class="index_headline"><%="検索結果一覧 #{@search_results.count}件"%></h3>
 
       <div class="search_results">
-          <% @cars.each do |car|%>
+        <% if @search_results.present? %>
+          <% @search_results.each do |car|%>
             <div class="car_item">
               <%= image_tag car.images[0], class:"car_img"%>
               <div class="car_info">
@@ -55,6 +57,9 @@
               </div>
             </div>
           <% end %>
+        <% else %>
+        <h2 class="search_failed">検索項目に該当する結果はありませんでした</h2>
+        <% end %>
       </div>
     <!--以上一覧表示画面-->
 
