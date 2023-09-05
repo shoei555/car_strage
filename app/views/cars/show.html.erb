@@ -56,13 +56,13 @@
         <td class="item-name">距離：</td>
         <td><%= @car.mileage %>km</td>
         <td class="item-name">燃料</td>
-        <td><%= @car.car_fuel %></td>
+        <td><%= @car.fuel.name %></td>
       </tr>
       <tr>
         <td class="item-name">駆動方式</td>
-        <td><%= @car.wheel_drive %></td>
+        <td><%= @car.wheeldrive.name %></td>
         <td class="item-name">外装色</td>
-        <td><%= @car.car_color %></td>
+        <td><%= @car.color.name %></td>
       </tr>
       <tr>
         <td class="item-name">登録日</td>

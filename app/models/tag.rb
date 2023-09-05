@@ -8,11 +8,9 @@ class Tag < ActiveHash::Base
     { id: 6, name: '抹消済み' },
     { id: 7, name: '自社名中' },
     { id: 8, name: '廃車' },
-    { id: 9, name: '事故車' },
+    { id: 9, name: '事故車' }
   ]
 
   include ActiveHash::Associations
   has_many :cars
-
-  
 end
