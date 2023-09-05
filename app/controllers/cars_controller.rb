@@ -17,6 +17,7 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
     else
       render :new
     end
+    
   end
 
   def show
@@ -40,7 +41,7 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
 
   private
   def car_params
-    params.require(:car).permit(:name, :maker_id, :model_year, :mileage, :prefecture_id, :price, :car_code, {images: []}).merge(user_id: current_user.id)
+    params.require(:car).permit(:name, :maker_id, :model_year, :mileage, :prefecture_id, :price, :car_code,:car_inspection,:displacement,:car_color,:wheel_drive,:car_fuel,:tag_id, {images: []}).merge(user_id: current_user.id)
   end
   
   def log_out #ログアウト状態ではログイン画面へ遷移
@@ -52,5 +53,7 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
   def set_car
     @car = Car.find(params[:id])
   end
+
+  
 
 end
