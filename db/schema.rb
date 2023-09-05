@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_08_28_031404) do
-  create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
+  create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_28_031404) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", charset: "utf8mb4", force: :cascade do |t|
+  create_table "active_storage_blobs", charset: "utf8", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -33,19 +33,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_28_031404) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "active_storage_variant_records", charset: "utf8mb4", force: :cascade do |t|
+  create_table "active_storage_variant_records", charset: "utf8", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "cars", charset: "utf8mb4", force: :cascade do |t|
+  create_table "cars", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "maker_id", null: false
     t.date "model_year", null: false
     t.integer "mileage", null: false
     t.integer "prefecture_id", null: false
-    t.integer "price", null: false
+    t.float "price", null: false
     t.string "car_code", null: false
     t.bigint "user_id", null: false
     t.date "car_inspection", null: false
@@ -59,7 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_28_031404) do
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+  create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "email", null: false
     t.string "encrypted_password", null: false
     t.integer "employee_num", null: false

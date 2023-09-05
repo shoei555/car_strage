@@ -12,8 +12,8 @@
 <tr>
 
   <td>
-   <%= image_tag c.images[0],:size =>'100x100' if c.images.present? && c.images[0].present?%>
-   <%= link_to "詳細画面へ", car_path(id: c.id), method: :get %>
+    <%= image_tag c.images[0],:size =>'100x100' if c.images.present? && c.images[0].present?%>
+    <%= link_to "詳細画面へ", car_path(id: c.id), method: :get %>
   </td>
       
   <td>
