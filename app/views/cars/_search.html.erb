@@ -13,21 +13,21 @@
           </tr>
           <tr class="search_son">
             <td class="search_sons">
-              <%= f.label :price_gteq, '本体価格(税込)' %><br>
-              <%= f.number_field :price_gteq, value: @car_price,placeholder:"本体価格を数字で入力" %> 万円以上
-              <%= f.number_field :price_lteq, value: @car_price,placeholder:"本体価格を数字で入力" %> 万円以下
+              <%= f.label :price, '本体価格(税込)' %><br>
+              <%= f.number_field :price_lteq, placeholder:"(上限)" %> ~
+              <%= f.number_field :price_gteq, placeholder:"(下限)" %> 万円
             </td>
             <td class="search_sons">
-              <%= f.label :model_year_gteq, '年式(※初年度登録)' %><br>
-              <%= f.select :model_year_gteq, options_for_select((1989..Time.now.year).map { |year| [year.to_s + '年', "#{year}-01-01"] }, selected: @car_model_year), include_blank: true %>
-              〜<%= f.select :model_year_lteq, options_for_select((1989..Time.now.year).map { |year| [year.to_s + '年', "#{year}-12-31"] }, selected: @car_model_year), include_blank: true %>
+              <%= f.label :model_year, '年式(※初年度登録)' %><br>
+              <%= f.select :model_year_gteq, options_for_select((1989..Time.now.year).map { |year| [year.to_s + '年', "#{year}-01-01"] }, selected: ""), include_blank: true %>
+              〜<%= f.select :model_year_lteq, options_for_select((1989..Time.now.year).map { |year| [year.to_s + '年', "#{year}-12-31"] }, selected: ""), include_blank: true %>
             </td>
           </tr>
-          <tr class="search_son">
+          <tr class="search_son"></tr>
             <td class="search_sons">
-              <%= f.label :mileage_gteq, '走行距離' %><br>
-              <%= f.number_field :mileage_gteq, value: @car_mileage,placeholder:"走行距離を入力" %>km以上 
-              <%= f.number_field :mileage_lteq, value: @car_mileage,placeholder:"走行距離を入力" %> km以下
+              <%= f.label :mileage, '走行距離' %><br>
+              <%= f.number_field :mileage_lteq, placeholder:"(上限)" %> ~
+              <%= f.number_field :mileage_gteq, placeholder:"(下限)" %> km
             </td>
             <td class="search_sons">
               <%= f.label :car_code_cont, '車台番号(部分検索可)' %><br>

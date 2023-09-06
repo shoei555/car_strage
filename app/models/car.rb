@@ -6,7 +6,7 @@ class Car < ApplicationRecord
     validates :mileage,                numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 1000000 } # 数字のみ
     validates :prefecture_id,          numericality: { other_than: 1,message: "を選択してください" }
     validates :price, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 9999,allow_float: true }
-    validates :car_code, uniqueness: true
+    validates :car_code, uniqueness: true,format: { with: /\A[A-Z0-9-]+\z/ },length: { in: 12..17 } #半角英数字ハイフン可
     validates :images,                   length: { minimum: 1, maximum: 6, message: "は1枚以上6枚以下にしてください" }
     validates :car_inspection                                                  #車検期間
     validates :displacement                                                    #排気量

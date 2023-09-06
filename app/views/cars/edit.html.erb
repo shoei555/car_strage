@@ -1,97 +1,153 @@
 <%= render "cars/header" %>
-
-<p>以下、編集画面表示<p>
-
-<% if user_signed_in? %>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-  <%= link_to "詳細画面へ", car_path(id: @car.id), method: :get %>
-<% end %>
-
+<%= stylesheet_link_tag "new_edit", "data-turbo-track": "reload" %>
 <%= form_with model: @car, id: 'new_car' ,local: true do |f| %>
+<div class="form_main">
+
+<!----------(画像アップロード)----------------------------------------------->
     <%# 商品画像 %>
-      <div class="img-upload">
-        <div class="weight-bold-text">
-          商品画像
-          <span class="indispensable">必須</span>
-        </div>
-        <div class="click-upload">
-          <div id="previews"></div>
-          <p>
-            クリックしてファイルをアップロード
-          </p>
-          <%= f.file_field :images, name: 'car[images][]', data: {index: 0}, id:"item-image" %>
-        </div>
-      </div>
-      <%# /商品画像 %>
-      <%# 商品名と商品説明 %>
-      <div class="new-items">
-        <div class="weight-bold-text">
-          車種名
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_field :name, class:"items-text", id:"item-name", placeholder:"車種名（必須 40文字まで)", maxlength:"40" %>
-        <div class="items-explain">
-          <div class="weight-bold-text">
-            メーカー
-            <span class="indispensable">必須</span>
+      <div class="image_post">
+          <div class="click-upload">
+              <div id="previews"></div>
+                <%= f.file_field :images, name:'car[images][]', data: {index: 0}, id:"item-image" %>
           </div>
+      </div>
+      <div class="caveat_text">
+          <p>
+            (1枚以上必須：最大6枚登録可能)
+          </p>
+      </div>
+<!----(画像アップロード)---------------------------------------------------->
+
+
+<!----(項目入力)---------------------------------------------------->
+    <br>
+    <!--　登録情報入力-->
+    <div class="registration_screen">
+      <div class="reft_registration">
+        <div>
+          <div class="item">メーカー ※必須</div>
           <%= f.collection_select(:maker_id, Maker.all, :id, :name, {},  {class:"select-box", id:"item-maker"}) %>
         </div>
-      </div>
-      <div class="items-explain">
-          <div class="weight-bold-text">
-            年式
-            <span class="indispensable">必須</span>
-          </div>
-          
-        <%= raw sprintf(
-                    f.date_select(
-                      :model_year,
-                      class:'select-year',
-                      id:"model_year",
-                      use_month_numbers: true,
-                      discard_day: true,	
-                      prompt:'--',
-                      start_year: (Time.now.year),
-                      end_year: 1989,
-                      date_separator: '%s'),
-                    "<p> 年 </p>") + "<p> 月 </p>" %> 
-      </div>
-      <div class="items-explain">
-          <div class="weight-bold-text">
-            走行距離
-            <span class="indispensable">必須</span>
-          </div>
-          <%= f.text_field :mileage , class:"items-text", id:"item-info", placeholder:"走行距離入力" ,rows:"7" ,maxlength:"1000" %>
-      </div>
-      <div class="items-explain">
-          <div class="weight-bold-text">
-            登録都道府県
-            <span class="indispensable">必須</span>
-          </div>
+        <br>
+        <br>
+        <div>
+        <div class="item">車種 ※必須</div>
+        <%= f.text_field :name, class:"items-text", id:"item-name", placeholder:"車種名（最大25文字まで)", maxlength:"25" %>
+        </div>
+        <br>
+        <br>
+        <div>
+          <div class="item">都道府県(所在地) ※必須</div>
           <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {},  {class:"select-box", id:"item-prefecture"}) %>
+        </div>
+        <br>
+        <br>
+        <div>
+          <div class="item">カラー ※必須</div>
+          <%= f.collection_select(:color_id, Color.all, :id, :name, {},  {class:"select-box", id:"item-maker"}) %>
+        </div>
       </div>
-      <div class="items-explain">
-          <div class="weight-bold-text">
-            車台番号
-            <span class="indispensable">必須</span>
-          </div>
-          <%= f.text_field :car_code, class:"items-text", id:"item-info", placeholder:"車台番号入力" ,rows:"7" ,maxlength:"1000" %>
-      </div>
-      <div class="items-explain">
-          <div class="weight-bold-text">
-            価格
-            <span class="indispensable">必須</span>
-          </div>
-          <%= f.text_field :price, class:"items-text", id:"item-info", placeholder:"価格入力" ,rows:"7" ,maxlength:"1000" %> 
-      </div>
-      <%# /商品名と商品説明 %>
 
-      
-      <%# 下部ボタン %>
-      <div class="sell-btn-contents">
-        <%= f.submit "登録する" ,class:"sell-btn" %>
+
+      <div class="middle_registration">
+          <div>
+              <div class="item">年式 ※必須</div>
+              <div class="registration_box">
+              <%= raw sprintf(
+                      f.date_select(
+                        :model_year,
+                        class:'select-year',
+                        id:"model_year",
+                        use_month_numbers: true,
+                        discard_day: true,  
+                        prompt:'--',
+                        start_year: (Time.now.year),
+                        end_year: 1989,
+                        date_separator: '%s'),
+                      "<p> 年 </p>") + "<p> 月 </p>" %> 
+          </div>
+        <br>
+        <br>
+          </div>
+              <div class="item">走行距離 ※必須</div>
+              <div class="registration_box">
+                <%= f.text_field :mileage , class:"items-text", id:"item-info", placeholder:"走行距離入力",maxlength:"15" %>
+                <div>km</div>
+              </div>
+        <br>
+        <br>
+              <div class="item">排気量 ※必須</div>
+              <div class="registration_box">
+                <%= f.text_field :displacement , class:"items-text", id:"item-info", placeholder:"例：660",maxlength:"10" %>
+                <div>cc</div>
+              </div>
+        <br>
+        <br>
+              <div class="item">車台番号 ※必須</div>
+              <div class="registration_box">
+                <%= f.text_field :car_code , class:"items-text", id:"item-info", placeholder:"※車検証通りに記入",maxlength:"20" %>
+              </div>
+          </div>
+
+
+
+
+        <div class="right_registration">
+          <div>
+              <div class="item">車検日 ※必須</div>
+              <div class="registration_box">
+                <%= raw sprintf(
+                  f.date_select(
+                    :car_inspection,
+                    class: 'select-year',
+                    id: 'car_inspection',
+                    use_month_numbers: true,
+                    prompt: '--',
+                    start_year: Time.now.year - 3,
+                    end_year: Time.now.year + 3,
+                    date_separator: '%s'),
+                  "<span>年</span>","<span>月</span>" )+ "<span>日</span>"%>
+              </div>
+          </div>
+        <br>
+        <br>
+          <div class="wheel_tag">
+            <div>
+              <div class="item">駆動方式 ※必須</div>
+              <div class="registration_box">
+                <%= f.collection_select(:wheeldrive_id, Wheeldrive.all, :id, :name, {},  {class:"select-box", id:"item-prefecture"}) %>
+              </div>
+            </div>
+            <div>
+              <div class="item">タグ ※任意</div>
+              <div class="registration_box">
+                <%= f.collection_select(:tag_id, Tag.all, :id, :name, {},  {class:"select-box", id:"item-prefecture"}) %>
+              </div>
+            </div>
+          </div>
+        <br>
+        <br>
+              <div class="item">燃料 ※必須</div>
+              <div class="registration_box">
+                <%= f.collection_select(:fuel_id, Fuel.all, :id, :name, {},  {class:"select-box", id:"item-prefecture"}) %>
+              </div>
+        <br>
+        <br>
+              <div class="item">価格 ※必須</div>
+              端数は小数点第1位まで入力可</br>
+              <div class="registration_box">
+                <%= f.text_field :price , class:"price-text", id:"item-info", placeholder:"例：100",maxlength:"10" %>
+                <div class="unit">万円</div>
+              </div>
+        </div>
       </div>
+    </div>
+<!----(項目入力)---------------------------------------------------->
+        <div class="registration_btn_box">
+          <%= f.submit "登録する" ,class:"registration_btn" %>
+        </div>
+</div>
 <% end %>
+
 
 <%= render "layouts/footer" %>

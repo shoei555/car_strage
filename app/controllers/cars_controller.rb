@@ -43,9 +43,9 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
   def search
     @q = Car.ransack(params[:q])
     @search_results = @q.result
-    @car_price = Car.pluck(:price)
-    @car_model_year = Car.pluck(:model_year)
-    @car_mileage = Car.pluck(:mileage)
+    # @car_price = Car.pluck(:price)
+    # @car_model_year = Car.pluck(:model_year)
+    # @car_mileage = Car.pluck(:mileage)
   end
 
   private
