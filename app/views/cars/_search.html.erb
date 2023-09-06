@@ -4,11 +4,11 @@
         <table class="search_parent">
           <tr class="search_son">
             <td class="search_sons">
-              <%= f.label :maker_id_eq, 'メーカー' %><br>
-              <%= f.collection_select(:maker_id_eq, Maker.where.not(id: 1), :id,  :name,{include_blank: true, selected: ''}) %>
+              <%= f.label :maker_maker_eq, 'メーカー' %><br>
+              <%= f.collection_select(:maker_maker_eq, Maker.maker_list, :to_s, :to_s, {include_blank: true, selected: ''}, { data: { makers: Maker.data.to_json } }) %>
             <td class="search_sons">
-              <%= f.label :name_cont, '車種名' %><br>
-              <%= f.text_field :name_cont,  placeholder:"車種名を入力",maxlength:"20"%>
+              <%= f.label :maker_id_eq, '車種名' %><br>
+              <%= f.collection_select(:maker_id_eq, Maker.all, :id, :name, {include_blank: true, selected: ''}, {include_blank: true, id: 'model_select'}) %>
             </td>
           </tr>
           <tr class="search_son">

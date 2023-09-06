@@ -36,10 +36,10 @@
             <div class="car_item">
               <%= image_tag car.images[0], class:"car_img"%>
               <div class="car_info">
-                <%= "#{car.model_year.strftime("%Y年式")}#{car.maker.name}"%>
+                <%= "#{car.model_year.strftime("%Y年式")}#{car.maker.maker}"%>
                 <div class="car_info_main">
                   <div class="car_item_name">
-                    <%= "#{car.name}" %>
+                    <%= "#{car.maker.name}" %>
                   </div>
                   <div class="car_item_price">
                     <%= car.price %>万円

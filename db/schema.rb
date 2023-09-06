@@ -40,8 +40,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_28_031404) do
   end
 
   create_table "cars", charset: "utf8", force: :cascade do |t|
-    t.string "name", null: false
     t.integer "maker_id", null: false
+    t.string "maker_maker", null: false
     t.date "model_year", null: false
     t.integer "mileage", null: false
     t.integer "prefecture_id", null: false

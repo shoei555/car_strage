@@ -12,6 +12,7 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
 
   def create
     @car = Car.new(car_params)
+
     if @car.save
       redirect_to  cars_path
     else
@@ -49,11 +50,11 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
 
   private
   def car_params
-    params.require(:car).permit(:name, :maker_id, :model_year, :mileage, :prefecture_id, :price, :car_code,:car_inspection,:displacement,:color_id,:wheeldrive_id, :fuel_id,:tag_id,{images: []}).merge(user_id: current_user.id,editer_id: current_user.id)
+    params.require(:car).permit(:maker_id, :model_year, :mileage, :prefecture_id, :price, :car_code,:car_inspection,:displacement,:color_id,:wheeldrive_id, :fuel_id,:tag_id,:maker_maker,{images: []}).merge(user_id: current_user.id,editer_id: current_user.id)
   end
 
   def car_edit_params
-    params.require(:car).permit(:name, :maker_id, :model_year, :mileage, :prefecture_id, :price, :car_code,:car_inspection,:displacement,:car_color_id,:wheel_drive_id, :car_fuel_id,:tag_id,{images: []}).merge(editer_id: current_user.id)
+    params.require(:car).permit(:maker_id, :model_year, :mileage, :prefecture_id, :price, :car_code,:car_inspection,:displacement,:color_id,:wheel_drive_id, :fuel_id,:tag_id,:maker_maker,{images: []}).merge(editer_id: current_user.id)
   end
   
   def log_out #ログアウト状態ではログイン画面へ遷移

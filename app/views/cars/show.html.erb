@@ -3,7 +3,7 @@
 <div class="show-container">
   <div class="show-wrapper">
     <div class="headline">
-      <%= "#{@car.model_year.strftime("%Y年式")} #{@car.maker.name} #{@car.name}" %>
+      <%= "#{@car.model_year.strftime("%Y年式")} #{@car.maker.maker} #{@car.maker.name}" %>
       <% if @car.tag.name == "新着"%>
           <div class ="show_tag_2"><%= @car.tag.name %></div>
         <% elsif @car.tag.name == "売り切り"%>
