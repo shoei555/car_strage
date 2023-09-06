@@ -1,6 +1,6 @@
 class Car < ApplicationRecord
   with_options presence: true do
-    validates :maker_id
+    validates :maker_id,               numericality: { other_than: 1,message: "を選択してください" }
     validates :maker_maker
     validates :model_year
     validates :mileage,                numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 1000000 } # 数字のみ
