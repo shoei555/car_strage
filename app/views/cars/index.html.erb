@@ -61,7 +61,7 @@
                   </div>
                 </div>
                 <div class="car_info_sub">
-                  距離：<%= car.mileage%>km<br>
+                  距離：<%= car.mileage.to_s(:delimited)%>km<br>
                   車台番号：<%= car.car_code%><br>
                   所在地：<%= car.prefecture.name%><br>
                   更新日：<%= car.created_at.strftime("%Y年%m月%d日")%>
