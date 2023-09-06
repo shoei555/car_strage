@@ -6,10 +6,6 @@
 /***********登録フォーム全体******************************/
 
 
-
-
-
-
 /***********画像アップロード*******************************/
 
 /*画像アップロード画面全体*/
@@ -90,109 +86,63 @@
       }
       /**********登録情報入力(左側)*********************************/
       .reft_registration{
-        width: 15vw;
+        width: 280px;
       }
       /**********登録情報入力(左側)*********************************/
 
 
+      /**********登録情報入力(中央)*********************************/
+      .middle_registration{
+        width: 300px;
+      }
       /**********登録情報入力(右側)*********************************/
       .right_registration{
-        width: 40vw;
+        width: 300px;
       }
 
-            /*********年式、車検日入力欄***********************************/
-            .input_one_box{
-              display: flex;
-              justify-content: space-around;
-            }
-            /*********年式、車検日入力欄***********************************/
+      .wheel_tag{
+        display: flex;
+        justify-content: space-between;
+      }
 
-
-            /********走行距離、駆動方式、タグ入力欄***************************/
-            .input_two_box{
-              display: flex;
-              justify-content: space-around;
-            }
-
-            .mileage_registration{
-              margin: 0px 30px 0px 25px;
-            }
-            /********走行距離、駆動方式、タグ入力欄***************************/
-
-
-            /********排気量、燃料入力欄************************************/
-            .input_three_box{
-              display: flex;
-              justify-content: space-between;
-            }
-
-            .displacement_registration{
-              margin: 0px 0px 0px 65px;
-            }
-
-            .car_fuel__registration{
-              margin: 0px 160px 0px 0px;
-            }
-            /********排気量、燃料入力欄************************************/
-
-
-            /*********車台番号、価格入力欄*********************************/
-            .input_four_box{
-              display: flex;
-              justify-content: space-between;
-            }
-
-            .car_code_registration{
-              margin: 0px 70px 0px 65px;
-            }
-
-            .price__registration{
-              margin: 0px 67px 0px 0px;
-            }
-
-            .price-text{
-              font-size: 30px;
-              width: 150px;
-              height: 60px;
-              font-weight: bold;
-            }    
-            
-            .unit{
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              font-size: 20px;
-            }            
-            /*********車台番号、価格入力欄*********************************/
-
+      .price-text{
+        font-size: 30px;
+        width: 150px;
+        height: 60px;
+        font-weight: bold;
+      }    
+      
+      .unit{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+      }            
       /**********登録情報入力(右側)*********************************/
-
 /**********登録情報入力*********************************/
 
+      /*各々の入力項目配置*/
+      .registration_box{
+        display: flex;
+      }
 
+      /*各々の入力項目のタイトル*/
+      .item{
+        font-size: 15px;
+        font-weight: bold;
+      }
 
-/*各々の入力項目配置*/
-.registration_box{
-  display: flex;
-}
-
-/*各々の入力項目のタイトル*/
-.item{
-  font-size: 15px;
-  font-weight: bold;
-}
-
-/*登録するボタン配置*/
-.registration_btn_box{
-  display: flex;
-  justify-content: center;
-}
-/*登録するボタンデザイン*/
-.registration_btn{
-  width: 180px;
-  border-radius: 10px;
-  background-color: #333333;
-  color: white;
-  text-align: center;
-  cursor: pointer;
-}
+      /*登録するボタン配置*/
+      .registration_btn_box{
+        display: flex;
+        justify-content: center;
+      }
+      /*登録するボタンデザイン*/
+      .registration_btn{
+        width: 180px;
+        border-radius: 10px;
+        background-color: #333333;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+      }
