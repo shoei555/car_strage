@@ -26,7 +26,7 @@
       <div class="reft_registration">
         <div>
           <div class="item">メーカー</div>
-          <%= f.collection_select(:maker, Maker.maker_list, :to_s, :to_s, {},  {class:"select-box", id:"q_maker_eq", data: { makers: Maker.data.to_json }}) %>
+          <%= f.collection_select(:maker_id, Maker.maker_list, :to_s, :to_s, {},  {class:"select-box", id:"q_maker_maker_eq", data: { makers: Maker.data.to_json }}) %>
         </div>
         <br>
         <br>

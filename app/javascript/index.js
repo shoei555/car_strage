@@ -14,7 +14,7 @@ document.addEventListener('turbo:load', function() {
 });
 
 document.addEventListener('turbo:load', function() {
-  const makersSelect = document.getElementById('q_maker_eq');
+  const makersSelect = document.getElementById('q_maker_maker_eq');
   const modelsSelect = document.getElementById('model_select');
   const makerMakerSelect = document.getElementById('maker_maker');
 
