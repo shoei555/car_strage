@@ -15,7 +15,7 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
     if @car.save
       redirect_to  cars_path
     else
-      render :new, status
+      render :new, status: :unprocessable_entity
     end
 
   end
@@ -30,7 +30,7 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
     if @car.update(car_edit_params)
       redirect_to car_path
     else
-      render :edit 
+      render :edit, status: :unprocessable_entity
     end
   end
 
