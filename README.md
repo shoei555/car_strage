@@ -55,9 +55,9 @@ has_many: cars
 | reference           | user                | null:false                  | 登録者                                     |
 | date                | car_inspection      | null:false                  | 車検期間                                   |
 | integer             | displacement        | null:false                  | 排気量                                     |
-| string              | car_color           | null:false                  | 車体色                                     |
+| string              | color           | null:false                  | 車体色                                     |
 | string              | wheel_drive         | null:false                  | 駆動                                       |
-| string              | car_fuel            | null:false                  | 燃料                                       |
+| string              | fuel            | null:false                  | 燃料                                       |
 | integer             | tag_id              |                             | タグ                                       |
 
 ##Association

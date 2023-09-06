@@ -15,7 +15,7 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
     if @car.save
       redirect_to  cars_path
     else
-      render :new
+      render :new, status
     end
 
   end
