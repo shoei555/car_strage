@@ -5,30 +5,24 @@
 <div class="form_main">
 
 
-
-<%# <div class="image_post">
-      <!-- プレビュー領域 -->
-      <!-- プレビュー画像はここに表示されます -->
-      <div id="image-preview-container"></div>
-<br>
-<div class="up_btn">
-        <!-- アップロードボタン -->
-        <%= f.file_field :images, name:'car[images][]', data: {index: 0},id: "image-upload", multiple: true %>
-<%# </div>
-</div>  %>
-      <%# 商品画像 %>
+<%#################################################################################################%>
+     <%# 商品画像 %>
       <div class="image_post">
-        <div class="click-upload">
-          <div id="previews"></div>
-          <br>
-          <div class="up_btn">
-          <label for="car_images" class="custom-file-label">ファイルを選択</label>
-        <%= f.file_field :images, name: 'car[images][]', data: { index: 0 }, class:'custom-file-input',multiple: true %> 
-        <p>(最大6枚まで登録可能)</p>
-          </div>
-        </div>
-      </div>
 
+          <div class="click-upload">
+              <div id="previews"></div>
+                <%= f.file_field :images, name:'car[images][]', data: {index: 0}, id:"item-image" %>
+          </div>
+      </div>
+      
+<div class="caveat_text">
+          <p>
+            (最大6枚登録可能)
+          </p>
+</div>
+
+
+<%#################################################################################################%>
 
 
     <br>
