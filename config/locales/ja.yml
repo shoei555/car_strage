@@ -5,3 +5,9 @@ ja:
         employee_num: 社員番号
         first_name: 名
         last_name: 姓
+      car: 
+        car_inspectionz: 車検期間
+        displacement: 排気量
+        color: 車体色
+        wheel_drive:  駆動
+        fuel: 燃料
