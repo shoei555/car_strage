@@ -6,6 +6,10 @@
 /***********登録フォーム全体******************************/
 
 
+
+
+
+
 /***********画像アップロード*******************************/
 
 /*画像アップロード画面全体*/
@@ -14,7 +18,6 @@
   display: flex;
   justify-content: center;
   align-items: end;
-  /* border: 1px solid red; */
 }
 
 /*画像アップロードボタンデザイン*/
@@ -40,7 +43,6 @@
   opacity: 0;
   position: absolute;
   z-index: -1;
-
   display: flex;
   justify-content: center;
   align-items:end;
@@ -51,8 +53,29 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 30px; /* 画像間の間隔を調整 */
+  gap: 30px; /*画像間の間隔を調整 */
 }
+
+.preview{
+  display:block;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 画像プレビューの大きさ */
+.preview-image{
+  margin: 0px 100px 0px 0px;
+}
+
+/* プレビュー枚数(6枚上限)テキスト */
+.caveat_text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
 /***********画像アップロード*******************************/
 
 
