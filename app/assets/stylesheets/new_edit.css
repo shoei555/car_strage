@@ -70,7 +70,9 @@
   align-items: center;
 }
 
-
+.caveat_text{
+  font-weight: bold;
+}
 
 /***********画像アップロード*******************************/
 
