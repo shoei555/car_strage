@@ -13,6 +13,10 @@ before_action :set_car, only:[:show, :edit, :update, :destroy]
   def create
     @car = Car.new(car_params)
 
+    
+    binding.pry
+    
+
     if @car.save
       redirect_to  cars_path
     else
