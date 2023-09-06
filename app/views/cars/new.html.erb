@@ -25,15 +25,17 @@
     <div class="registration_screen">
       <div class="reft_registration">
         <div>
-          <div class="item">メーカー ※必須</div>
-          <%= f.collection_select(:maker_id, Maker.all, :id, :name, {},  {class:"select-box", id:"item-maker"}) %>
+          <div class="item">メーカー</div>
+          <%= f.collection_select(:maker, Maker.maker_list, :to_s, :to_s, {},  {class:"select-box", id:"q_maker_eq", data: { makers: Maker.data.to_json }}) %>
         </div>
         <br>
         <br>
         <div>
-        <div class="item">車種 ※必須</div>
-        <%= f.text_field :name, class:"items-text", id:"item-name", placeholder:"車種名（最大25文字まで)", maxlength:"25" %>
+        <div class="item">車種</div>
+          <%= f.collection_select(:maker_id, Maker.all, :id, :name, {include_blank: true, selected: ''}, {include_blank: true, id: 'model_select'}) %>
         </div>
+
+        <%= f.text_field :maker_maker , id:"maker_maker", type:"hidden"%>
         <br>
         <br>
         <div>
