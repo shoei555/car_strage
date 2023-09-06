@@ -27,14 +27,31 @@
       <%= render "cars/search" %>
     <!--以上検索欄ー-->
 
-      <!--以下一覧表示画面-->
+      <!--以下検索結果一覧表示画面-->
       <h3 class="index_headline"><%="検索結果 #{@search_results.count}件"%></h3>
 
       <div class="search_results">
-        <% if @search_results.present? %>
+         <% if @search_results.present? %>
           <% @search_results.each do |car|%>
             <div class="car_item">
-              <%= image_tag car.images[0], class:"car_img"%>
+                  <% if car.tag.name == "新着"%>
+                    <div class ="car_tag_2"><%= car.tag.name %></div>
+                  <% elsif car.tag.name == "売り切り"%>
+                    <div class ="car_tag_3"><%= car.tag.name %></div>
+                  <% elsif car.tag.name == "長期在庫"%>
+                    <div class ="car_tag_4"><%= car.tag.name %></div>
+                  <% elsif car.tag.name == "陸送中"%>
+                    <div class ="car_tag_5"><%= car.tag.name %></div>
+                  <% elsif car.tag.name == "抹消済み"%>
+                    <div class ="car_tag_6"><%= car.tag.name %></div>
+                  <% elsif car.tag.name == "自社名中"%>
+                    <div class ="car_tag_7"><%= car.tag.name %></div>
+                  <% elsif car.tag.name == "廃車"%>
+                    <div class ="car_tag_8"><%= car.tag.name %></div>
+                  <% elsif car.tag.name == "事故車"%>
+                    <div class ="car_tag_9"><%= car.tag.name %></div>
+                  <% end %>
+                  <%= image_tag car.images[0], class:"car_img"%>
               <div class="car_info">
                 <%= "#{car.model_year.strftime("%Y年式")}#{car.maker.name}"%>
                 <div class="car_info_main">
@@ -51,18 +68,16 @@
                   所在地：<%= car.prefecture.name%><br>
                   更新日：<%= car.created_at.strftime("%Y年%m月%d日")%>
                 </div>
-                <div >
                   <%= link_to "詳細画面", car_path(id: car.id), method: :get ,class:"car_info_link"%>
-                </div>
               </div>
             </div>
           <% end %>
         <% else %>
-        <h2 class="search_failed">検索項目に該当する結果はありませんでした</h2>
+          <h2 class="search_failed"> "検索項目に該当する結果はありませんでした" </h2> 
         <% end %>
       </div>
     <!--以上一覧表示画面-->
-
+ 
   </div>
 
 </div>
