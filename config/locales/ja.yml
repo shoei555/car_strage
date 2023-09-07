@@ -6,8 +6,22 @@ ja:
         first_name: 名
         last_name: 姓
       car: 
-        car_inspectionz: 車検期間
+        car_inspection: 車検期間
         displacement: 排気量
-        color: 車体色
-        wheel_drive:  駆動
-        fuel: 燃料
+        color_id: 車体色
+        wheeldrive_id:  駆動方式
+        fuel_id: 燃料
+        maker_id: 車種名
+        maker_maker: メーカー
+        model_year: 年式
+        mileage: 走行距離 
+        prefecture_id: 都道府県
+        price: 価格
+        car_code: 車体番号
+        images: 画像
+        
+        
+
+
+
+       
