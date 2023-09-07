@@ -17,7 +17,7 @@
           </p>
       </div>
 <!----(画像アップロード)---------------------------------------------------->
-    <%= render '/shared/error_messages' ,model: f.object %>
+
 
 <!----(項目入力)---------------------------------------------------->
     <br>
@@ -143,6 +143,9 @@
               </div>
         </div>
       </div>
+    </div>
+    <div class="error-alert">
+      <%= render '/shared/error_messages' ,model: f.object %>
     </div>
 <!----(項目入力)---------------------------------------------------->
         <div class="registration_btn_box">
